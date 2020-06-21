@@ -1,0 +1,8 @@
+{
+  "realm": "main",
+  "auth-server-url": "https://accounts.kbb1.com/auth/",
+  "ssl-required": "external",
+  "resource": "membership_pay",
+  "public-client": true,
+  "confidential-port": 0
+}
