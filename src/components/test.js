@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function test() {
+function test() {
   return (
     <div>
       PLOP 1    
     </div>
   )
 }
+
+export default test 

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import simpleCounter from './simpleCounter'
+import simpleCounter from './simpleCounterReducer'
+import { connectRouter } from 'connected-react-router'
 
-const rootReducer = combineReducers({
+const rootReducer = (history) => combineReducers({
+  router: connectRouter(history),
   simpleCounter,
 });
 
