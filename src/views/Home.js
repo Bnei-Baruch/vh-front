@@ -1,30 +1,27 @@
 import React from 'react'
-import {Link} from "react-router-dom"
-import {useSelector, useDispatch} from 'react-redux'
-import {incrementCounter} from 'redux/actions/simpleCounterActions'
+import SimpleLayout from 'layouts/SimpleLayout'
+import HeroSimple from 'components/HeroSimple'
 
-import {Button} from '@material-ui/core'
+import {
+  Typography 
+} from '@material-ui/core'
 
 function Home() {
-  const counter = useSelector(state => state.simpleCounter.counter)
-  const dispatch = useDispatch()
-
-  const up = () => {
-    dispatch(incrementCounter())
-  }
 
   return (
-    <>
-       Home
-       <Link to="/plan">Plan</Link>
-       <h1>{counter}</h1>
-       <Button 
-          color="primary" 
-          variant="contained"
-          onClick={up}
-          >+</Button>
-       <Button color="primary" variant="contained">-</Button>
-    </>
+    <SimpleLayout>
+      <HeroSimple 
+        title="Title"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        imgSrc="/house.png"
+        imgAlt="alt text"
+
+      />
+
+        <Typography>
+          Home
+        </Typography>
+    </SimpleLayout>
   )
 }
 
