@@ -10,6 +10,7 @@
         "@testing-library/user-event": "^7.1.2",
         "classnames": "^2.2.6",
         "connected-react-router": "^6.8.0",
+        "google-spreadsheet": "^3.0.11",
         "history": "4.10.1",
         "immutable": "4.0.0-rc.1",
         "keycloak-js": "^10.0.2",
@@ -31,6 +32,7 @@
         "start": "react-app-rewired start ",
         "build": "react-app-rewired build",
         "test": "react-app-rewired test",
+        "i18n": "node setI18n.js",
         "storybook": "start-storybook -p 9009 -s public",
         "build-storybook": "build-storybook -s public"
     },
