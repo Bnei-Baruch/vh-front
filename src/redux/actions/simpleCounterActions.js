@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions';
+import { createAction } from 'redux-act';
 
 export const incrementCounter= createAction('INCREMENT_COUNTER');
 export const decrementCounter = createAction('DECREMENT_COUNTER');
