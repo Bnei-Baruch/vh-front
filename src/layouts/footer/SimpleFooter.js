@@ -4,10 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import I18 from 'components/I18'
 import { Link } from 'react-router-dom'
 import {
-  AppBar,
-  Toolbar,
   Typography,
-  Button,
   Box
 } from '@material-ui/core'
 

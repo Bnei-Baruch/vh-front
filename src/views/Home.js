@@ -2,6 +2,7 @@ import React from 'react'
 import SimpleLayout from 'layouts/SimpleLayout'
 import HeroSimple from 'components/HeroSimple'
 import Row from 'components/Row'
+import DoubleCTA from 'components/DoubleCTA'
 import I18 from 'components/I18'
 
 function Home() {
@@ -36,6 +37,9 @@ function Home() {
             body:<I18>main.physical.body</I18>
           }
         ]} />
+        
+        <DoubleCTA />
+
     </SimpleLayout>
   )
 }
