@@ -33,8 +33,10 @@ function LanguagePicker(props) {
 
   const setLang = (value) => {
     console.log(value)
-    dispatch(setLanguage("RU"))
-    dispatch(setCurrency("NIS"))
+    dispatch(setLanguage(value))
+    if (value === "HE"){
+      dispatch(setCurrency("NIS"))
+    }    
   }
 
   return (
