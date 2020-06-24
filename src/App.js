@@ -1,6 +1,7 @@
 import React from 'react'
 import Routes from 'config/Routes'
 import { Provider } from 'react-redux'
+import StateLoader from 'config/StateLoader'
 
 // Material UI
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,8 +15,10 @@ function App(props) {
   return (
     <Provider store={store} >
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Routes />      
+        <StateLoader>
+          <CssBaseline />
+          <Routes />   
+        </StateLoader>   
       </ThemeProvider>
     </Provider> 
   );
