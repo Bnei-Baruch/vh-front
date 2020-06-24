@@ -1,26 +1,41 @@
 import React from 'react'
 import SimpleLayout from 'layouts/SimpleLayout'
 import HeroSimple from 'components/HeroSimple'
-
-import {
-  Typography 
-} from '@material-ui/core'
+import Row from 'components/Row'
+import I18 from 'components/I18'
 
 function Home() {
 
   return (
     <SimpleLayout>
       <HeroSimple 
-        title="Title"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        title={<I18>main.title</I18>}
+        description={<I18>main.subtitle</I18>}
         imgSrc="/house.png"
-        imgAlt="alt text"
-
+        imgAlt={<I18>main.title</I18>}
       />
-
-        <Typography>
-          Home
-        </Typography>
+      <Row 
+        cols={[
+          { 
+            title:<I18>main.performance.title</I18>,
+            body:<I18>main.performance.body</I18>
+          },
+          {
+            title:<I18>main.features.title</I18>,
+            body:<I18>main.features.body</I18>
+          }
+        ]} />
+        <Row 
+          cols={[
+          { 
+            title:<I18>main.security.title</I18>,
+            body:<I18>main.security.body</I18>
+          },
+          {
+            title:<I18>main.physical.title</I18>,
+            body:<I18>main.physical.body</I18>
+          }
+        ]} />
     </SimpleLayout>
   )
 }
