@@ -7,15 +7,16 @@ import {
   Toolbar,
   Typography,
   Button,
-  Box
+  Box,
 } from '@material-ui/core'
 
 // Misc
 import LanguagePicker from 'components/LanguagePicker'
+import Logo from 'components/Logo/Logo'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 0,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -23,26 +24,26 @@ const useStyles = makeStyles((theme) => ({
   bar:{
     justifyContent: 'space-between'
   },
-  title: {
-    flexGrow: 1,
+  menu: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    gap: '1em'
   },
 }));
 
 
-function SimpleHeader() {
+function SimpleHeader(withlogin) {
   const classes = useStyles();
   return (
     <>
       <div className={classes.root}>
         <AppBar color="default">
           <Toolbar className={classes.bar}>
-            <Typography>
-              Bnei Baruch
-            </Typography>
+            <Logo />
             
-            <Box>
+            <Box className={classes.menu}>
               <LanguagePicker />
-              <Button>Plop</Button>
+              {withlogin === true && <Button color="primary" variant="contained">Login</Button>}
             </Box>
       </Toolbar>
     </AppBar>
