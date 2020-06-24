@@ -8,11 +8,11 @@ import './index.css';
 export const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <HelmetProvider>
       <App store={store} history={history}/>
     </HelmetProvider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 
