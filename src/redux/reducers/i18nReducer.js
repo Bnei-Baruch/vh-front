@@ -16,17 +16,17 @@ export default createReducer(
     [setLanguage]: (state, action) => { 
       return(
         {...state, 
-          lang:action.payload,
-          dictionary: i18n[action.payload].map,
-          direction: i18n[action.payload].map.direction,
-          defaultCurrency: i18n[action.payload].map.defaultCurrency.split(',')
+          lang:action.lang,
+          dictionary: i18n[action.lang].map,
+          direction: i18n[action.lang].map.direction,
+          defaultCurrency: i18n[action.lang].map.defaultCurrency.split(',')
         }
       )      
     },
     [setCurrency]: (state, action) => {
       return (
         { ...state, 
-          defaultCurrency: action.payload 
+          defaultCurrency: action.currency
         }
       )
     },
