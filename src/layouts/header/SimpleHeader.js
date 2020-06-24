@@ -31,7 +31,7 @@ function SimpleHeader() {
   return (
     <>
       <div className={classes.root}>
-        <AppBar color="transparent">
+        <AppBar color="default">
           <Toolbar className={classes.bar}>
             <Typography>
               Bnei Baruch
