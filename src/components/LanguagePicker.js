@@ -18,24 +18,25 @@ import I18 from 'components/I18'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: 'inherit',
   },
   paper: {
     marginRight: theme.spacing(2),
   },
 }));
 
-function LanguagePicker(props) {
+function LanguagePicker() {
   const classes = useStyles();
   const lang = useSelector(state => state.i18n.lang)
   const availableLangs = useSelector(state => state.i18n.availableLangs)
   const dispatch = useDispatch()
 
   const setLang = (value) => {
-    console.log(value)
     dispatch(setLanguage(value))
+    localStorage.setItem('VH_DEFAULT_LANG', value);
     if (value === "HE"){
       dispatch(setCurrency("NIS"))
+      localStorage.setItem('VH_DEFAULT_CURRENCY', value);
     }    
   }
 
