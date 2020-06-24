@@ -10,6 +10,9 @@ import {
   Box
 } from '@material-ui/core'
 
+// Misc
+import LanguagePicker from 'components/LanguagePicker'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -38,7 +41,7 @@ function SimpleHeader() {
             </Typography>
             
             <Box>
-              <Button>Language</Button>
+              <LanguagePicker />
               <Button>Plop</Button>
             </Box>
       </Toolbar>
