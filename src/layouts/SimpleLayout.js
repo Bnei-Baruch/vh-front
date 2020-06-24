@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   main: {
     paddingTop: "100px",
     height: "100%",
+    display: "block"
   }
 }))
 
@@ -30,9 +31,9 @@ function SimpleLayout(props) {
 
       <Container className={classes.main}>
         {children}
+        <SimpleFooter />
       </Container> 
 
-      <SimpleFooter />
     </Container>
   )
 }
