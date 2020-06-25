@@ -11,6 +11,7 @@ import {
 
 // Misc
 import LanguagePicker from 'components/LanguagePicker'
+import CurrencyPicker from 'components/CurrencyPicker'
 import Logo from 'components/Logo/Logo'
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function SimpleHeader(withlogin) {
+function PlanHeader(withlogin) {
   const classes = useStyles();
   return (
     <>
@@ -42,6 +43,7 @@ function SimpleHeader(withlogin) {
             
             <Box className={classes.menu}>
               <LanguagePicker />
+              <CurrencyPicker /> 
               {withlogin === true && <Button color="primary" variant="contained">Login</Button>}
             </Box>
       </Toolbar>
@@ -51,4 +53,4 @@ function SimpleHeader(withlogin) {
   )
 }
 
-export default SimpleHeader
+export default PlanHeader

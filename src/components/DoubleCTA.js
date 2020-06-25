@@ -24,7 +24,7 @@ const StyledButton = styled(Button)({
 function DoubleCTA(props) {
   return (
     <ButtonBox>
-      <Link to="/tos">
+      <Link to="/plan">
       <StyledButton variant="contained" size="large" color="primary">
         <I18>main.button.pay</I18>
       </StyledButton>

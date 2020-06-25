@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
-import {/*useSelector,*/ useDispatch} from 'react-redux'
-import {setLanguage, setCurrency} from 'redux/actions/i18nActions'
+import {useDispatch} from 'react-redux'
+import {setLanguage} from 'redux/actions/i18nActions'
+import {setCurrency} from 'redux/actions/productActions'
 
 function StateLoader(props) {
   // const lang = useSelector(state => state.i18n.lang)

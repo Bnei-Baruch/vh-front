@@ -1,7 +1,8 @@
 import React from 'react'
 
 //Redux
-import { setLanguage, setCurrency} from 'redux/actions/i18nActions'
+import { setLanguage } from 'redux/actions/i18nActions'
+import { setCurrency } from 'redux/actions/productActions'
 import {useSelector, useDispatch} from 'react-redux'
 
 // MUI

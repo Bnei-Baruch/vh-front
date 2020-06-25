@@ -8,6 +8,8 @@ import {
 
 import Home from 'views/Home'
 import Plan from 'views/Plan'
+import Tos from 'views/Tos'
+import LoadingScreen from 'views/LoadingScreen'
 
 
 function Routes() {
@@ -15,6 +17,8 @@ function Routes() {
     <Router>
       <Switch>
         <Route exact from='/plan' render={() => <Plan />} />
+        <Route exact from='/tos' render={() => <Tos />} />
+        <Route exact from='/test' render={() => <LoadingScreen />} />
         <Route exact from='/' render={() => <Home />} />
         <Route path="*" render={() => (<Redirect to="/" />)} />          
       </Switch>
