@@ -19,8 +19,9 @@ const useStyles = makeStyles((theme) => ({
 
 function SimpleLayout(props) {
   const classes = useStyles()
-  const {title, description, children} = props
+  const {title, description, direction, children} = props
   return (
+    <div dir={direction}>
     <Container className={classes.root}>
       <PageInfo 
         title={title}
@@ -35,6 +36,7 @@ function SimpleLayout(props) {
       </Container> 
 
     </Container>
+    </div>
   )
 }
 
