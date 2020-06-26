@@ -1,7 +1,7 @@
 import React from 'react'
 
 //Redux
-import { setCurrency, setCurrencyIdx} from 'redux/actions/productActions'
+import { setCurrency } from 'redux/actions/productActions'
 import {useSelector, useDispatch} from 'react-redux'
 
 // MUI

@@ -1,8 +1,8 @@
 import { createReducer } from 'redux-act'
 import {i18n} from 'config/i18nMap'
 import { 
-  setDefaultAmount, 
   setCurrency, 
+  setProductAmount,
   setCurrencyIdx,
   onSliderIdxChanged 
 } from '../actions/productActions';
@@ -11,10 +11,9 @@ import {
 
 
 const initialState = {
-  defaultCurrency: i18n['EN'].map.defaultCurrency.split(','), 
   sliderStepIdx: null,
   currency: "USD",
-  amount: null,
+  amount: 10,
   selectedCurrencyIdx: 0,
   currencies: {
     "USD" : {
@@ -24,7 +23,7 @@ const initialState = {
       minStepValue:1,
       maxStepValue: 100,
       stepValue: 1,
-      defaultStepValue: 35
+      defaultStepValue: 10
     },
     "NIS" : {
       minAmount: 35,
@@ -83,7 +82,7 @@ export default createReducer(
     return (
       { ...state, 
         currency: action.currency,
-        defaultCurrency: action.currency
+        amount: state.currencies[action.currency].minAmount
       }
     )
   },
@@ -92,6 +91,14 @@ export default createReducer(
       {
         ...state,
         selectedCurrencyIdx: action.index
+      }
+    )
+  },
+  [setProductAmount]: (state, action) => {
+    return (
+      {
+        ...state,
+        amount: action.amount
       }
     )
   }

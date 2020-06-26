@@ -18,7 +18,7 @@ function StateLoader(props) {
       // Geo IP magic
     }
     if (defaultCurrency && defaultCurrency.length === 3) {
-      setCurrency(defaultCurrency)
+      dispatch(setCurrency(defaultCurrency))
     } else {
       // Geo IP magic
     }

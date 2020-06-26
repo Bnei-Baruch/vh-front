@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100%"
+    height: "100%",
   },
   main: {
     paddingTop: "100px",
@@ -19,22 +19,24 @@ const useStyles = makeStyles((theme) => ({
 
 function PlanLayout(props) {
   const classes = useStyles()
-  const {title, description, children} = props
+  const {title, description, direction, children} = props
   return (
-    <Container className={classes.root}>
-      <PageInfo 
-        title={title}
-        description={description}
-      />
+    <div dir={direction}>
+      <Container className={classes.root}>
+        <PageInfo 
+          title={title}
+          description={description}
+        />
 
-      <PlanHeader />
+        <PlanHeader />
 
-      <Container className={classes.main}>
-        {children}
-        <SimpleFooter />
-      </Container> 
+        <Container className={classes.main}>
+          {children}
+          <SimpleFooter />
+        </Container> 
 
-    </Container>
+      </Container>
+    </div>
   )
 }
 
