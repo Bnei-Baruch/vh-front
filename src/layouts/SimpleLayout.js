@@ -4,6 +4,7 @@ import SimpleHeader from './header/SimpleHeader'
 import SimpleFooter from './footer/SimpleFooter'
 import { Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import {useSelector } from 'react-redux'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,8 +21,10 @@ const useStyles = makeStyles((theme) => ({
 function SimpleLayout(props) {
   const classes = useStyles()
   const {title, description, direction, children} = props
+  const dir = useSelector(state => state.i18n.direction)
+
   return (
-    <div dir={direction}>
+    <div id="direction" dir={dir}>
     <Container className={classes.root}>
       <PageInfo 
         title={title}
