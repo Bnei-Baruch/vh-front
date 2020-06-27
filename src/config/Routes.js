@@ -9,7 +9,9 @@ import {
 import Home from 'views/Home'
 import Plan from 'views/Plan'
 import Tos from 'views/Tos'
-import LoadingScreen from 'views/LoadingScreen'
+import Test from 'views/Test'
+import ErrorPayment from 'views/ErrorMessage/ErrorPayment'
+import SuccessPayment from 'views/SuccessPayment'
 
 
 function Routes() {
@@ -18,7 +20,10 @@ function Routes() {
       <Switch>
         <Route exact from='/plan' render={() => <Plan />} />
         <Route exact from='/tos' render={() => <Tos />} />
-        <Route exact from='/test' render={() => <LoadingScreen />} />
+        <Route exact from='/payment/success' render={() => <SuccessPayment />} />
+        <Route exact from='/payment/error' render={() => <ErrorPayment />} />
+        <Route exact from='/payment/error/:ordkey/:paramx' render={() => <ErrorPayment />} />
+        <Route exact from='/test/:id' render={() => <Test />} />
         <Route exact from='/' render={() => <Home />} />
         <Route path="*" render={() => (<Redirect to="/" />)} />          
       </Switch>
