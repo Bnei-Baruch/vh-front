@@ -102,18 +102,18 @@ function ProductForm() {
         Organization: "ben2",
         UserKey: user.info.keycloak.subject,
         Currency: product.currency,
-        //Amount: product.amount,
-        Amount: 1,
+        Amount: product.amount,
+        //Amount: 1,
         Type: "recurring",
         ProductType: "globalmembership",
         RecurringFreq: 30,
       
-        cancelUrl: 'http://86431566a175.ngrok.io/payment/cancel', 
-        successUrl: 'http://86431566a175.ngrok.io/payment/success', 
-        errorUrl: 'http://86431566a175.ngrok.io/payment/error'
-        // cancelUrl: 'https://virtualhome.kli.one/payment/cancel', 
-        // successUrl: 'https://virtualhome.kli.one/payment/success', 
-        // errorUrl: 'https://virtualhome.kli.one/payment/error'
+        // cancelUrl: 'http://86431566a175.ngrok.io/payment/cancel', 
+        // successUrl: 'http://86431566a175.ngrok.io/payment/success', 
+        // errorUrl: 'http://86431566a175.ngrok.io/payment/error'
+         cancelUrl: 'https://virtualhome.kli.one/payment/cancel', 
+         successUrl: 'https://virtualhome.kli.one/payment/success', 
+         errorUrl: 'https://virtualhome.kli.one/payment/error'
 
     })
     .then(function (response) {
