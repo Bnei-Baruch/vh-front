@@ -35,7 +35,8 @@ function LanguagePicker() {
   const setLang = (value) => {
     dispatch(setLanguage(value))
     localStorage.setItem('VH_DEFAULT_LANG', value);
-    if (value === "HE"){
+    console.log(value)
+    if (value == "HE"){
       dispatch(setCurrency("NIS"))
       localStorage.setItem('VH_DEFAULT_CURRENCY', value);
     }    
