@@ -21,7 +21,7 @@ function Tos() {
     "EN": "https://docs.google.com/document/d/e/2PACX-1vSq-qh5QyLqUEgRb1udvez0SDENkxhHwEoUvRMDvj_fUUde4PI4sapi6fg0WIp6xwcfTNJuW0h0kBAM/pub?embedded=true",
     "RU": "https://docs.google.com/document/d/e/2PACX-1vSq-qh5QyLqUEgRb1udvez0SDENkxhHwEoUvRMDvj_fUUde4PI4sapi6fg0WIp6xwcfTNJuW0h0kBAM/pub?embedded=true",
     "SP": "https://docs.google.com/document/d/e/2PACX-1vSq-qh5QyLqUEgRb1udvez0SDENkxhHwEoUvRMDvj_fUUde4PI4sapi6fg0WIp6xwcfTNJuW0h0kBAM/pub?embedded=true",
-    "HE": "https://docs.google.com/document/d/e/2PACX-1vS55LYnYroGyaFxx1ZnR9ftNOrmWbj8uh9PxYqGgNbxuK3wG3FwXwZkcYEJb6NOQQhcU8pv2XwH_D4K/pub?embedded=true"
+    "HE": "https://docs.google.com/document/d/e/2PACX-1vRGxXGLrshOu57ifcb2bgCOnIhsgZAAnb_zXjiweD6XEre_s-hK7fa0Flx_FxUBsFK7unny6-1LNtH6/pub?embedded=true"
   }
   
   return (
