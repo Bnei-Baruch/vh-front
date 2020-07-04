@@ -22,9 +22,31 @@ const ItemBox = styled(Box)({
   padding: '30px',
 })
 
+const CenterBox = styled(Box)({
+  padding: '30px',
+  textAlign: 'center'
+})
+
 function Row(props) {
   const classes = useStyles()
-  const {cols} = props
+  const {cols, notitle} = props
+  if (notitle === true){
+    return (
+      <>
+       <Grid container spacing={3}   
+          justify="center"
+          alignItems="center">
+          <Grid item sm={8} xs={12}>
+            <CenterBox>
+              <Typography className={classes.itemText} variant="body1" gutterBottom>
+                {cols[0].body}
+              </Typography>
+            </CenterBox>
+          </Grid>
+       </Grid> 
+      </>
+    )
+  } 
   return (
     <>
       <Grid container spacing={3}>
