@@ -37,7 +37,16 @@ function Home() {
             body:<I18>main.physical.body</I18>
           }
         ]} />
-        
+
+        <Row 
+          notitle={true}
+          cols={[
+            { 
+              body:<I18>home.help</I18>
+            }
+          ]}
+        />
+    
         <DoubleCTA />
 
     </SimpleLayout>
