@@ -37,7 +37,7 @@ function ErrorPayment() {
      }
      
     // axios.post('http://localhost:8185/orders/paid', q)
-    axios.post('https://virtualhome.kli.one/api/orders/error', errinfo)
+    axios.post('https://kli.one/api/orders/error', errinfo)
     .then(function (response) {
       console.log(response);
     })
