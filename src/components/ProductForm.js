@@ -81,7 +81,7 @@ function ProductForm() {
       setErrorDisplay(false)
       setFormDisabled(true)
       // axios.post('http://localhost:8185/orders/newandpay', {
-      axios.post('https://virtualhome.kli.one/api/orders/newandpay', {
+      axios.post('https://kli.one/api/orders/newandpay', {
       // Account details
         AccountID: "-",
         FirstName: user.info.profile.firstName,
@@ -111,9 +111,9 @@ function ProductForm() {
         // cancelUrl: 'http://86431566a175.ngrok.io/payment/cancel', 
         // successUrl: 'http://86431566a175.ngrok.io/payment/success', 
         // errorUrl: 'http://86431566a175.ngrok.io/payment/error'
-         cancelUrl: 'https://virtualhome.kli.one/payment/cancel', 
-         successUrl: 'https://virtualhome.kli.one/payment/success', 
-         errorUrl: 'https://virtualhome.kli.one/payment/error'
+         cancelUrl: 'https://kli.one/payment/cancel', 
+         successUrl: 'https://kli.one/payment/success', 
+         errorUrl: 'https://kli.one/payment/error'
 
     })
     .then(function (response) {

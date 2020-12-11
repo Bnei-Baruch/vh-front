@@ -25,7 +25,7 @@ function SuccessPayment() {
     let q = qs.parse(window.location.search);
 
     // axios.post('http://localhost:8185/orders/paid', q)
-    axios.post('https://virtualhome.kli.one/api/orders/paid', q)
+    axios.post('https://kli.one/api/orders/paid', q)
     .then(function (response) {
       console.log(response);
     })
