@@ -62,7 +62,7 @@ function ErrorPayment() {
         </StyledButton>
       </Link>
 
-      <StyledButton href="mailto:virtualhome@kabbalah.info" variant="outlined" size="large" color="default">
+      <StyledButton href="mailto:help@kli.one" variant="outlined" size="large" color="default">
         <I18>thanksyou.contact</I18>
       </StyledButton>
 

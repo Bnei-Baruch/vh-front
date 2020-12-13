@@ -29,7 +29,7 @@ function DoubleCTA(props) {
         <I18>main.button.pay</I18>
       </StyledButton>
       </Link>
-      <StyledButton href="mailto:virtualhome@kabbalah.info" variant="outlined" size="large" color="default">
+      <StyledButton href="mailto:help@kli.one" variant="outlined" size="large" color="default">
         <I18>main.button.contact</I18>
       </StyledButton>
     </ButtonBox>
