@@ -1,40 +1,23 @@
-# Build container
-FROM node:current-alpine3.10 as builder
-WORKDIR /app
-COPY package.json .
-COPY yarn.lock .
-RUN yarn install 
-COPY . .
-RUN yarn build
+FROM node:14.12.0-stretch as builder
+RUN mkdir vh-front && chown -R node:node vh-front
+WORKDIR /vh-front
+ADD . /vh-front
 
-# Run container
-FROM nginx:mainline-alpine
+RUN yarn install
 
-# Nginx config
-RUN rm -rf /etc/nginx/conf.d
-COPY conf /etc/nginx 
+ARG BUILD=build
+ENV ENVIRONMENT_NAME=$BUILD
+RUN echo $ENVIRONMENT_NAME
+RUN yarn $ENVIRONMENT_NAME --output-path=build
 
-# Static build
-COPY --from=builder /app/build /usr/share/nginx/html/
+FROM nginx:1.15
 
-# Default port exposure
+COPY nginx/nginx-custom.conf /etc/nginx/conf.d/default.conf
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=builder /vh-front/build /usr/share/nginx/html/
+
 EXPOSE 80
 
-# Initialise environnement variable into filesystem 
-WORKDIR /usr/share/nginx/html 
-COPY ./env.sh .
-COPY .env . 
-
-# Add bash
-RUN apk add --no-cache bash
-
-# Run script which initializes env vars to fs
-RUN chmod +x env.sh
-# RUN ./env.sh
-
-# Start Nginx server
-CMD ["/bin/bash", "-c", "/usr/share/nginx/html/env.sh && nginx -g \"daemon off;\""]
-
-
-
+CMD ["nginx", "-g", "daemon off;"]
 
