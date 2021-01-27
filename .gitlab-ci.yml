@@ -27,8 +27,8 @@ before_script:
 build:
   stage: build
   script:
-    - docker login gitlab.bbdev.team:5050 --username $username --password $password
-    - docker build -t gitlab.bbdev.team:5050/vh/vh-front:$CI_COMMIT_SHORT_SHA .
-    - docker push gitlab.bbdev.team:5050/vh/vh-front:$CI_COMMIT_SHORT_SHA
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/vh/vh-front:$CI_COMMIT_SHORT_SHA .
+    - docker push $CI_REGISTRY/vh/vh-front:$CI_COMMIT_SHORT_SHA
   only:
     - development
