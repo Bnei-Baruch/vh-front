@@ -3,12 +3,12 @@ RUN mkdir vh-front && chown -R node:node vh-front
 WORKDIR /vh-front
 ADD . /vh-front
 
-RUN yarn install
+RUN npm install
 
 ARG BUILD=build
 ENV ENVIRONMENT_NAME=$BUILD
 RUN echo $ENVIRONMENT_NAME
-RUN yarn $ENVIRONMENT_NAME --output-path=build
+RUN npm run $ENVIRONMENT_NAME --output-path=build
 
 FROM nginx:1.15
 

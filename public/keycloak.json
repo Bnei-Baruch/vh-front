@@ -1,7 +1,7 @@
 {
-  "realm": "main",
-  "auth-server-url": "https://accounts.kbb1.com/auth/",
-  "ssl-required": "external",
+  "realm": "master",
+  "auth-server-url": "http://auth.2serv.eu/auth/",
+  "ssl-required": "none",
   "resource": "membership_pay",
   "public-client": true,
   "confidential-port": 0
