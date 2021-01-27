@@ -1,34 +1,33 @@
-image: docker:latest
+stages:
+  - publish
+  - deploy
 
-#variables:
-  # When using dind service, we need to instruct docker to talk with
-  # the daemon started inside of the service. The daemon is available
-  # with a network connection instead of the default
-  # /var/run/docker.sock socket. Docker 19.03 does this automatically
-  # by setting the DOCKER_HOST in
-  # https://github.com/docker-library/docker/blob/d45051476babc297257df490d22cbd806f1b11e4/19.03/docker-entrypoint.sh#L23-L29
-  #
-  #DOCKER_HOST: tcp://51.15.238.1:2375
-  # The 'docker' hostname is the alias of the service container as described at
-  # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services.
-  #
-  # Specify to Docker where to create the certificates, Docker will
-  # create them automatically on boot, and will create
-  # `/certs/client` that will be shared between the service and job
-  # container, thanks to volume mount from config.toml
-  #DOCKER_TLS_CERTDIR: "/certs"
+variables:
+  IMAGE: $CI_REGISTRY/vh/vh-front:$CI_COMMIT_SHORT_SHA
 
-services:
-  - docker:19.03.12-dind
-
-before_script:
-  - docker info
-
-build:
-  stage: build
+publish:
+  image: docker:latest
+  services:
+    - docker:19.03.12-dind
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build -t $CI_REGISTRY/vh/vh-front:$CI_COMMIT_SHORT_SHA .
-    - docker push $CI_REGISTRY/vh/vh-front:$CI_COMMIT_SHORT_SHA
+    - docker push $IMAGE
+
+deploy:
+  image: alpine:latest
+  stage: deploy
+  tags:
+    - deployment
+  script:
+    - chmod og= $ID_RSA
+    - apk update && apk add openssh-client
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker pull $IMAGE"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker container rm -f vh-front || true"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "docker run -d -p 80:80 --name vh-front $IMAGE"
+  environment:
+    name: development
+    url: http://51.15.238.1
   only:
     - development
