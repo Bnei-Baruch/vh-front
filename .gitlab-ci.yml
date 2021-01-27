@@ -8,6 +8,7 @@ variables:
   # by setting the DOCKER_HOST in
   # https://github.com/docker-library/docker/blob/d45051476babc297257df490d22cbd806f1b11e4/19.03/docker-entrypoint.sh#L23-L29
   #
+  DOCKER_HOST: tcp://51.15.238.1:2375
   # The 'docker' hostname is the alias of the service container as described at
   # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services.
   #
