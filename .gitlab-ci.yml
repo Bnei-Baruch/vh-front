@@ -23,7 +23,7 @@ deploy:
   tags:
     - dockerbuild
   script:
-    - docker -H $HOST login  -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    #- docker -H $HOST login  -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker -H $HOST pull $IMAGE
     - docker -H $HOST rm -f vh-front
     - docker -H $HOST run -d --net=vh --name vh-bbpayment --restart always -p 80:80 $IMAGE
