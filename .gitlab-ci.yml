@@ -23,7 +23,7 @@ deploy:
   tags:
     - dockerbuild
   script:
-    - docker -H tcp://51.15.238.1:2375 login  -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    #- docker -H tcp://51.15.238.1:2375 login  -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker -H tcp://51.15.238.1:2375 pull $IMAGE
     - docker -H tcp://51.15.238.1:2375 rm -f vh-front
     - docker -H tcp://51.15.238.1:2375 run -d --net=vh --name vh-bbpayment --restart always -p 80:80 $IMAGE
