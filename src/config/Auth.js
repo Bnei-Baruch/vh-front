@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Keycloak from 'keycloak-js';
+import keycloakConfig from './keycloak-config';
 
 import {setLoggedInUser} from 'redux/actions/userActions'
 import {useDispatch} from 'react-redux'
@@ -8,12 +9,13 @@ import ErrorLogin from 'views/ErrorMessage/ErrorLogin'
 import LoadingScreen from 'views/LoadingScreen'
 
 function Auth(props) {
-  const [auth, setAuth] = useState({ keycloak: null, authenticated: false })
+  const [auth, setAuth] = useState({ keycloak: null, authenticated: false });
   const [userInfo, setUserInfo] = useState({ fn: "", ln:"", email:"" })
   const dispatch = useDispatch()
 
   useEffect(() => {    
-    const keycloak = Keycloak('/keycloak.json');
+		console.log(keycloakConfig)
+    const keycloak = Keycloak(keycloakConfig);
     keycloak.init({onLoad: 'login-required'})
       .then(authenticated => {
           keycloak.loadUserProfile().then(function() {
