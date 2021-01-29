@@ -1,8 +1,0 @@
-{
-  "realm": "master",
-  "auth-server-url": "http://auth.2serv.eu/auth/",
-  "ssl-required": "none",
-  "resource": "membership_pay",
-  "public-client": true,
-  "confidential-port": 0
-}
