@@ -12,8 +12,12 @@ const keycloakConfigDev =
 		clientId: "membership_pay" 
 	} 
 
-if (process.env.NODE_ENV !== 'production') { 
+// there is a problem with PM2 env variable.
+// for now this should do for production
+// will then change value for dev. 
+
+if (process.env.NODE_ENV === "production") { 
 	module.exports = keycloakConfigProd; 
 } else {
-	module.exports = keycloakConfigDev
+	module.exports = keycloakConfigProd;
 }
