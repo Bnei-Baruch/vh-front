@@ -1,5 +1,6 @@
 {
     "name": "vh-rc0.2",
+		"homepage": "https://example.com/dash",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
