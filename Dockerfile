@@ -7,6 +7,7 @@ RUN npm install
 
 ARG BUILD=build
 ENV ENVIRONMENT_NAME=$BUILD
+ENV REACT_APP_STAGING=true
 RUN echo $ENVIRONMENT_NAME
 RUN npm run $ENVIRONMENT_NAME --output-path=build
 
