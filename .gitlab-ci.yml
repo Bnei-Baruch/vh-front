@@ -60,12 +60,12 @@ deploy_prod:
   tags:
     - dockerbuild
   script:
-    - chmod og= $PROD_ID_RSA
+    - chmod og= $ID_RSA
     - apk update && apk add openssh-client
-    - ssh -i $PROD_ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
-    - ssh -i $PROD_ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker pull $PROD_IMAGE"
-    - ssh -i $PROD_ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker container rm -f prod-vh-front || true"
-    - ssh -i $PROD_ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker run -d --net=vh --name prod-vh-front --memory="200m" --cpus="0.5" --restart always -p 8081:80 $PROD_IMAGE "
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker pull $PROD_IMAGE"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker container rm -f prod-vh-front || true"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $PROD_SERVER_USER@$PROD_SERVER_IP "docker run -d --net=vh --name prod-vh-front --memory="200m" --cpus="0.5" --restart always -p 8081:80 $PROD_IMAGE "
   when: manual
   only:
     - master 
@@ -76,12 +76,12 @@ deploy_standby:
   tags:
     - dockerbuild
   script:
-    - chmod og= $STAND_ID_RSA
+    - chmod og= $ID_RSA
     - apk update && apk add openssh-client
-    - ssh -i $STAND_ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
-    - ssh -i $STAND_ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker pull $PROD_IMAGE"
-    - ssh -i $STAND_ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker container rm -f prod-vh-front || true"
-    - ssh -i $STAND_ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker run -d --net=vh --name prod-vh-front --memory="200m" --cpus="0.5" --restart always -p 8081:80 $PROD_IMAGE "
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker pull $PROD_IMAGE"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker container rm -f prod-vh-front || true"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $STAND_SERVER_USER@$STAND_SERVER_IP "docker run -d --net=vh --name prod-vh-front --memory="200m" --cpus="0.5" --restart always -p 8081:80 $PROD_IMAGE "
   when: manual
   only:
     - master
