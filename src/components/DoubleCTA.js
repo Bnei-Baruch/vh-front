@@ -24,11 +24,11 @@ const StyledButton = styled(Button)({
 function DoubleCTA(props) {
   return (
     <ButtonBox>
-      <Link to="/plan">
+      <a href="https://payment.vh.kli.one/order/1">
       <StyledButton variant="contained" size="large" color="primary">
         <I18>main.button.pay</I18>
       </StyledButton>
-      </Link>
+      </a>
       <StyledButton href="mailto:help@kli.one" variant="outlined" size="large" color="default">
         <I18>main.button.contact</I18>
       </StyledButton>
