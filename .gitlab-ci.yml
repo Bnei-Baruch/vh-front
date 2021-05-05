@@ -28,10 +28,8 @@ deploy_staging:
   stage: deploy
   tags:
     - staging
-  environment:
-    IMAGE_NAME: "$STAGING_IMAGE"
   script:
-    - docker-compose up -d
+    - IMAGE_NAME=$STAGING_IMAGE docker-compose up -d
 # deploy:
 #   image: docker:latest
 #   stage: deploy
