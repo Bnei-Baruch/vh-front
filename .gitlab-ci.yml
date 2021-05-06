@@ -18,7 +18,7 @@ build_staging:
   script:
     - env
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker build --build-arg PUBLIC_URL=https://vh.2serv.eu/ -t $IMAGE .
+    - docker build --build-arg PUBLIC_URL=https://vh.2serv.eu/ -t $STAGING_IMAGE .
     - docker push $STAGING_IMAGE
   only:
     - updated-build
