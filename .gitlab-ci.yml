@@ -12,7 +12,7 @@ build_staging:
   image: docker:latest
   stage: build
   tags:
-    - dockerbuild
+    - staging
   services:
     - docker:19.03.12-dind
   script:
