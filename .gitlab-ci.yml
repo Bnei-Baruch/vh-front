@@ -30,6 +30,8 @@ deploy_staging:
   tags:
     - staging
   script:
+    - ls -lrt /var/run
+    - docker ps
     - IMAGE_NAME=$STAGING_IMAGE docker-compose up -d
   only:
     - updated-build
