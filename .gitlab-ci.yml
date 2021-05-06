@@ -21,17 +21,18 @@ build_staging:
     - docker build --build-arg PUBLIC_URL=https://vh.2serv.eu/ -t $IMAGE .
     - docker push $STAGING_IMAGE
   only:
-    - master
+    - updated-build
 
 deploy_staging:
-  image: tmaier/docker-compose:latest
+  #image: tmaier/docker-compose:latest
+  image: gitlab.bbdev.team:5050/vh/buildutils/buildutil:0.2.0
   stage: deploy
   tags:
     - staging
   script:
     - IMAGE_NAME=$STAGING_IMAGE docker-compose up -d
   only:
-    - master
+    - updated-build
 # deploy:
 #   image: docker:latest
 #   stage: deploy
