@@ -1,7 +1,9 @@
 FROM node:14.12.0-stretch as builder
-
+# this will be passed in as  --build-arg, when building docker image
+# default value will be localhost
 ARG PUBLIC_URL="http://127.0.0.1/"
-
+# below environment variable will be considered when npm building 
+# production assets / html
 ENV PUBLIC_URL=${PUBLIC_URL}
 
 RUN mkdir vh-front && chown -R node:node vh-front
