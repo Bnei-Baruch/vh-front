@@ -5,7 +5,7 @@ services:
     cpus: '0.1'
     mem_limit: 50M
     ports:
-      - 80:80
+      - 8081:80
 networks:
     default:
         external:
