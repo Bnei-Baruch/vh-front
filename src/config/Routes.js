@@ -18,13 +18,13 @@ function Routes() {
   return (
     <Router>
       <Switch>
-        <Route exact from='/plan' render={() => <Plan />} />
-        <Route exact from='/tos' render={() => <Tos />} />
-        <Route exact from='/payment/success' render={() => <SuccessPayment />} />
-        <Route exact from='/payment/error' render={() => <ErrorPayment />} />
-        <Route exact from='/payment/error/:ordkey/:paramx' render={() => <ErrorPayment />} />
-        <Route exact from='/test/:id' render={() => <Test />} />
-        <Route exact from='/' render={() => <Home />} />
+        <Route exact path='/plan' render={() => <Plan />} />
+        <Route exact path='/tos' render={() => <Tos />} />
+        <Route exact path='/payment/success' render={() => <SuccessPayment />} />
+        <Route exact path='/payment/error' render={() => <ErrorPayment />} />
+        <Route exact path='/payment/error/:ordkey/:paramx' render={() => <ErrorPayment />} />
+        <Route exact path='/test/:id' render={() => <Test />} />
+        <Route exact path='/' render={() => <Home />} />
         <Route path="*" render={() => (<Redirect to="/" />)} />          
       </Switch>
     </Router>
