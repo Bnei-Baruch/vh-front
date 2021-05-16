@@ -15,3 +15,7 @@
 - Create a tag in gitlab - which will deploy the same in production.
   
 ---
+
+# Virtual Home
+
+- for local development , npm start will start browser with the page
