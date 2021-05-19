@@ -43,7 +43,7 @@ build_production:
   image: docker:latest
   stage: build
   tags:
-    - dockerbuild
+    - docker
   services:
     - docker:19.03.12-dind
   script:
