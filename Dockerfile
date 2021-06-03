@@ -27,6 +27,7 @@ RUN npm run-script build --output-path=build
 FROM nginx:1.15
 
 COPY nginx/nginx-custom.conf /etc/nginx/conf.d/default.conf
+
 RUN rm -rf /usr/share/nginx/html/*
 
 COPY --from=builder /vh-front/build /usr/share/nginx/html/
