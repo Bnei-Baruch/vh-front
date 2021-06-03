@@ -23,7 +23,7 @@ build_base:
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker pull $BASE_LATEST_IMAGE || true
-    - docker build -t --cache-from $BASE_LATEST_IMAGE $BASE_IMAGE 
+    - docker build -t $BASE_IMAGE --cache-from $BASE_LATEST_IMAGE -f Dockerfile-base .
     - docker tag $BASE_IMAGE $BASE_LATEST_IMAGE
     - docker push $BASE_IMAGE
     - docker push $BASE_LATEST_IMAGE
@@ -32,6 +32,7 @@ build_base:
     - changes:
         - package.json
         - Dockerfile-base
+        - .gitlab-ci.yml
       allow_failure: true
 build_staging:
   image: docker:latest
