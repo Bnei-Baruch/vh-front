@@ -20,14 +20,16 @@ build_base:
     - dockerbuild
   services:
     - docker:19.03.12-dind
-  script:
+  before_script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  script:
+    - date
     - docker pull $BASE_LATEST_IMAGE || true
     - docker build -t $BASE_IMAGE --cache-from $BASE_LATEST_IMAGE -f Dockerfile-base .
     - docker tag $BASE_IMAGE $BASE_LATEST_IMAGE
     - docker push $BASE_IMAGE
     - docker push $BASE_LATEST_IMAGE
-    - docker image prune -f
+    - date
   rules:
     - changes:
         - package.json
