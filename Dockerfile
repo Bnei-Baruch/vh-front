@@ -1,4 +1,6 @@
-FROM node:14.12.0-stretch as builder
+ARG BASE_IMAGE="node:14.12.0-stretch"
+
+FROM ${BASE_IMAGE} as builder
 # this will be passed in as  --build-arg, when building docker image
 # default value will be localhost
 ARG PUBLIC_URL="http://127.0.0.1/"
@@ -10,7 +12,7 @@ ARG IS_STAGING_BUILD="true"
 
 ENV REACT_APP_STAGING=${IS_STAGING_BUILD}
 
-RUN mkdir vh-front && chown -R node:node vh-front
+# RUN mkdir vh-front && chown -R node:node vh-front
 
 WORKDIR /vh-front
 
