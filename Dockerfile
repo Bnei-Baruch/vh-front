@@ -18,9 +18,9 @@ WORKDIR /vh-front
 
 ADD . /vh-front
 
-RUN npm install
+# RUN npm install
 
-RUN echo $REACT_APP_STAGING
+# RUN echo $REACT_APP_STAGING
 
 RUN npm run-script build --output-path=build
 
