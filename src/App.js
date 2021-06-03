@@ -8,7 +8,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from 'config/Theme';
 
-
 function App(props) {
   const { store } = props
 
@@ -17,10 +16,10 @@ function App(props) {
       <ThemeProvider theme={theme}>
         <StateLoader>
           <CssBaseline />
-          <Routes />   
-        </StateLoader>   
+          <Routes />
+        </StateLoader>
       </ThemeProvider>
-    </Provider> 
+    </Provider>
   );
 }
 
