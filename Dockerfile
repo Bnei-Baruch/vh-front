@@ -3,7 +3,7 @@ ARG BASE_IMAGE="node:14.12.0-stretch"
 FROM ${BASE_IMAGE} as builder
 # this will be passed in as  --build-arg, when building docker image
 # default value will be localhost
-ARG PUBLIC_URL="http://127.0.0.1/"
+ARG PUBLIC_URL=""
 # below environment variable will be considered when npm building 
 # production assets / html
 ENV PUBLIC_URL=${PUBLIC_URL}
