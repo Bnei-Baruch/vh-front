@@ -1,3 +1,7 @@
-import rootReducer from './rootReducer'
+import { combineReducers } from 'redux';
 
-export default rootReducer
+import themeReducer from './themeReducers';
+
+export default combineReducers({
+	themeReducer
+});
