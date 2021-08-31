@@ -38,13 +38,13 @@ function Footer() {
         <Hidden smDown>
           <Grid container item xs={12} md={6}>
             <List>
-              <ListItem component="a" href="#">
+              <ListItem component="a" href="mailto:help@kli.one">
                 <ListItemText primary={t('footer.support')} />
               </ListItem>
-              <ListItem component="a" href="#">
-                <ListItemText primary={t('footer.helpCenter')} />
+              <ListItem component="a" href="mailto:help@kli.one">
+              <ListItemText primary={t('footer.helpCenter')} />
               </ListItem>
-              <ListItem component="a" href="#">
+              <ListItem component="a" href="/terms">
                 <ListItemText primary={t('footer.privacyAndSt')}/>
               </ListItem>
             </List>

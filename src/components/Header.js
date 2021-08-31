@@ -13,6 +13,8 @@ import {
 
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+import URL from '../config/config';
+import { NavLink } from "react-router-dom";
 
 const AppBar = styled(MuiAppBar)`
   background: ${props => props.theme.header.background};
@@ -34,6 +36,7 @@ const Flag = styled.img`
 
 const LogoContainer = styled.span`
   display: flex;
+  cursor: pointer;
 `;
 
 const Logo = styled.img`
@@ -58,12 +61,32 @@ const LogoSubHeading = styled.span`
 function LanguageMenu() {
   const [anchorMenu, setAnchorMenu] = useState(null);
 
+  const [lang, setLang] = useState({
+    "lang" : "English",
+    "code" : "US"
+  });
+
+  function setDirection(dir) {
+    document.body.style.direction = dir;
+  }
+  const { i18n } = useTranslation('common');
+
   const toggleMenu = event => {
     setAnchorMenu(event.currentTarget);
   };
 
-  const closeMenu = () => {
+  const closeMenu = (code) => {
     setAnchorMenu(null);
+    setLang({
+      "lang" : lang,
+      "code" : code
+    })
+    if (code.toUpperCase() === "IL") {
+      setDirection('rtl');
+    } else {
+      setDirection('ltr');
+    }
+    i18n.changeLanguage(code.toLowerCase());
   };
 
   return (
@@ -82,17 +105,17 @@ function LanguageMenu() {
         open={Boolean(anchorMenu)}
         onClose={closeMenu}
       >
-        <MenuItem onClick={closeMenu}>
+        <MenuItem onClick={() => closeMenu('en')}>
           English
         </MenuItem>
-        <MenuItem onClick={closeMenu}>
-          French
+        <MenuItem onClick={() => closeMenu('ru')}>
+          Russian
         </MenuItem>
-        <MenuItem onClick={closeMenu}>
-          German
+        <MenuItem onClick={() => closeMenu('il')}>
+        Hebrew
         </MenuItem>
-        <MenuItem onClick={closeMenu}>
-          Dutch
+        <MenuItem onClick={() => closeMenu('es')}>
+        Spanish
         </MenuItem>
       </Menu>
     </React.Fragment>
@@ -101,11 +124,17 @@ function LanguageMenu() {
 
 const Header = () => {
   const { t } = useTranslation('common');
+
+  const redirectToURL = (url) => {
+    window.location.href = url;
+  }
+
   return <React.Fragment>
     <AppBar position="sticky" elevation={0}>
       <Toolbar>
         <Grid container alignItems="center">
           <Grid item>
+            <NavLink to="/">
             <LogoContainer>
               <Logo src="/static/img/logo/logo.svg" slt="Application" />
               <LogoTitle>
@@ -113,14 +142,14 @@ const Header = () => {
                 <LogoSubHeading>{t('header.appSubTitle')}</LogoSubHeading>
               </LogoTitle>
             </LogoContainer>
-
+            </NavLink>
           </Grid>
           <Grid item xs />
           <Grid item>
             <LanguageMenu />
-            <Button variant="contained" color="primary">{t('header.login')}</Button>
+            <Button variant="contained" onClick={() => redirectToURL(URL.LOGIN_URL)} color="primary">{t('header.login')}</Button>
             &nbsp;&nbsp;
-            <Button variant="contained" color="primary">{t('header.signup')}</Button>
+            <Button variant="contained" onClick={() => redirectToURL(URL.SIGNUP_URL)} color="primary">{t('header.signup')}</Button>
           </Grid>
         </Grid>
       </Toolbar>

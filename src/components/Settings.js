@@ -6,7 +6,6 @@ import { setTheme } from "../redux/actions/themeActions";
 import {
   Button,
   Drawer,
-  Fab as MuiFab,
   ListItem,
   Paper as MuiPaper,
   Typography
@@ -14,21 +13,12 @@ import {
 
 import { spacing } from "@material-ui/system";
 
-import { Palette as PaletteIcon } from "@material-ui/icons";
-
 const Paper = styled(MuiPaper)(spacing);
 
 const Demo = styled(Paper)`
   cursor: pointer;
   text-align: center;
   box-shadow: none;
-`;
-
-const Fab = styled(MuiFab)`
-  position: fixed;
-  right: ${props => props.theme.spacing(8)}px;
-  bottom: ${props => props.theme.spacing(8)}px;
-  z-index: 1;
 `;
 
 const Wrapper = styled.div`

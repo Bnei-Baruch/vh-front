@@ -1,8 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import Helmet from 'react-helmet';
-
 import DateFnsUtils from "@date-io/date-fns";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
@@ -45,10 +42,6 @@ function App({ theme }) {
   return (
     <React.Fragment>
       <I18nextProvider i18n={i18next}>
-      <Helmet
-        titleTemplate="%s | Material App"
-        defaultTitle="Material App - React Admin & Dashboard Template"
-      />
       <StylesProvider injectFirst>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <MuiThemeProvider theme={maTheme[theme.currentTheme]}>
