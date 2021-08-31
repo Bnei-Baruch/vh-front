@@ -19,8 +19,8 @@ function Tos() {
   const tosURL = {
     "EN": "https://docs.google.com/document/d/e/2PACX-1vSq-qh5QyLqUEgRb1udvez0SDENkxhHwEoUvRMDvj_fUUde4PI4sapi6fg0WIp6xwcfTNJuW0h0kBAM/pub?embedded=true",
     "RU": "https://docs.google.com/document/d/e/2PACX-1vQh_cPl4n5Ab5uMTiQ-NsAmzJ3Asxx3yl0sHxgXWVOYTB3aovHiB1UuwZTvP5Mc9F3xL0KRag0KkFie/pub?embedded=true",
-    "SP": "https://docs.google.com/document/d/e/2PACX-1vSq-qh5QyLqUEgRb1udvez0SDENkxhHwEoUvRMDvj_fUUde4PI4sapi6fg0WIp6xwcfTNJuW0h0kBAM/pub?embedded=true",
-    "HE": "https://docs.google.com/document/d/e/2PACX-1vS55LYnYroGyaFxx1ZnR9ftNOrmWbj8uh9PxYqGgNbxuK3wG3FwXwZkcYEJb6NOQQhcU8pv2XwH_D4K/pub?embedded=true"
+    "ES": "https://docs.google.com/document/d/e/2PACX-1vSq-qh5QyLqUEgRb1udvez0SDENkxhHwEoUvRMDvj_fUUde4PI4sapi6fg0WIp6xwcfTNJuW0h0kBAM/pub?embedded=true",
+    "IL": "https://docs.google.com/document/d/e/2PACX-1vS55LYnYroGyaFxx1ZnR9ftNOrmWbj8uh9PxYqGgNbxuK3wG3FwXwZkcYEJb6NOQQhcU8pv2XwH_D4K/pub?embedded=true"
     
   }
   
