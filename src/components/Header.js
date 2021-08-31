@@ -53,6 +53,18 @@ const LogoHeading = styled.span`
     font-weight: bold;
 `;
 
+const SignupButton = styled(Button)`
+    background-color: #fff;
+    border: 1px solid #949494;
+    color: #000;
+    text-decoration: none !important;
+    :hover {
+        background-color: #f8f8f8;
+        border: 1px solid #949494;
+        color: #000;
+    }
+`;
+
 const LogoSubHeading = styled.span`
     font-size : 14px;
     color : #40B3E0;
@@ -97,7 +109,7 @@ function LanguageMenu() {
         onClick={toggleMenu}
         color="inherit"
       >
-        <Flag src="/static/img/flags/us.png" alt="English" />
+        <Flag src={`/static/img/flags/${i18n.language}.png`} alt="English" />
       </IconButton>
       <Menu
         id="menu-appbar"
@@ -149,7 +161,7 @@ const Header = () => {
             <LanguageMenu />
             <Button variant="contained" onClick={() => redirectToURL(URL.LOGIN_URL)} color="primary">{t('header.login')}</Button>
             &nbsp;&nbsp;
-            <Button variant="contained" onClick={() => redirectToURL(URL.SIGNUP_URL)} color="primary">{t('header.signup')}</Button>
+            <SignupButton variant="contained" onClick={() => redirectToURL(URL.SIGNUP_URL)} color="primary">{t('header.signup')}</SignupButton>
           </Grid>
         </Grid>
       </Toolbar>
