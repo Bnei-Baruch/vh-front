@@ -3,6 +3,7 @@ import { Container } from '@material-ui/core';
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import styled from "styled-components";
+import URL from '../config/config';
 const HomeContainer = styled.div`
     background-color: #fff;
     max-width: 1000px;
@@ -55,6 +56,7 @@ const BottomContainer = styled(Grid)`
 const BottomButton = styled(Button)`
     margin: 30px 15px; 
     min-width: 115px;
+    text-decoration: none !important;
 `
 const BottomButtonAlt = styled(Button)`
     margin: 30px 15px; 
@@ -62,6 +64,7 @@ const BottomButtonAlt = styled(Button)`
     border: 1px solid #949494;
     min-width: 115px;
     color: #000;
+    text-decoration: none !important;
     :hover {
         margin: 30px 15px; 
         background-color: #f8f8f8;
@@ -116,8 +119,8 @@ export default function Home() {
                         {t('home.bottomText')}
                     </BottomContainer>
                     <BottomContainer span={12} justify="center">
-                        <BottomButton variant="contained" color="primary">{t('home.payUserFee')}</BottomButton>
-                        <BottomButtonAlt variant="contained" color="primary">{t('home.contactus')}</BottomButtonAlt>
+                        <a href={URL.PAYMENT_URL}><BottomButton variant="contained" color="primary">{t('home.payUserFee')}</BottomButton></a>
+                        <a href="mailto:help@kli.one"><BottomButtonAlt variant="contained" color="primary">{t('home.contactus')}</BottomButtonAlt></a>
                     </BottomContainer>
                 </Grid>
             </HomeContainer>
