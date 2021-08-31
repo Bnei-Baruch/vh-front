@@ -1,18 +1,14 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'App'
-import { HelmetProvider } from 'react-helmet-async';
-import configureStore, { history } from 'redux/store/configureStore';
-import './index.css';
+import App from './App';
 
-export const store = configureStore();
+import { Provider } from 'react-redux';
+import store from './redux/store/index';
 
 ReactDOM.render(
-  <React.Fragment>
-    <HelmetProvider>
-      <App store={store} history={history}/>
-    </HelmetProvider>
-  </React.Fragment>,
-  document.getElementById('root')
-);
-
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('root'));

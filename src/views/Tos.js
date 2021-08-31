@@ -1,10 +1,8 @@
 import React from 'react'
 import Iframe from 'react-iframe'
-
-import {useSelector} from 'react-redux'
-
-import SimpleLayout from 'layouts/SimpleLayout'
 import { makeStyles } from '@material-ui/core/styles'
+import { useTranslation } from 'react-i18next'
+import { Container } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 function Tos() {
-  const lang = useSelector(state => state.i18n.lang)
+  const { i18n } = useTranslation('common');
+  const lang = i18n.language.toUpperCase();
   const classes = useStyles()
   
   const tosURL = {
@@ -26,7 +25,7 @@ function Tos() {
   }
   
   return (
-    <SimpleLayout>
+    <Container>
     <div style={{height: "15000px", border: 0}}>
         <Iframe 
           width="100%"
@@ -35,7 +34,7 @@ function Tos() {
           src={tosURL[lang]} 
         />
     </div>
-    </SimpleLayout>
+    </Container>
   )
 }
 
