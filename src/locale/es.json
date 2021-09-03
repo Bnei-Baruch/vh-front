@@ -1,20 +1,20 @@
 {
     "home": {
-        "mainTitle": "Our Virtual Home",
-        "mainSubtitle": "Our Virtual Home includes the physical infrastructure and manpower for maintaining our comprehensive operation and improving online systems for optimal connection during Daily Kabbalah Lessons, social gatherings, holidays, and meals. It allows each friend full interaction in their language, both with their Ten and the World Kli from 72 countries.",
+        "mainTitle": "Nuestro Hogar Virtual",
+        "mainSubtitle": "El Hogar Virtual incluye toda la infraestructura física y la mano de obra que nos permite realizar nuestra compleja y exhaustiva operación en línea, así como el funcionamiento y la mejora continua de nuestros sistemas de conexión virtual necesarios para estudiar juntos durante las lecciones diarias de Cabalá y celebrar reuniones y comidas especiales. Esto permite que amigos como ustedes estudien con total interacción en su propio idioma para todas las actividades, tanto con su decena como con amigos de los 72 países que componen el Kli Mundial.",
         "feature": {
-            "performance": "PERFORMANCE",
-            "performanceDesc": "Thousands of connections from more than 72 countries require substantial resources. Additionally, we need to make the platform work for everyone.",
-            "features": "FEATURES",
-            "featuresDesc": "The improvements and new features requested by you, our friends who are using the system, demand many development hours. We are happily enhancing our system to make your requests a reality.",
-            "security": "SECURITY",
-            "securityDesc": "The Internet is widespread and open, but not everyone is friendly. In order to ensure system safety, ongoing extra efforts are needed to safeguard against ever-changing security threats.",
-            "physicalInfra": "PHYSICAL INFRASTRUCTURE",
-            "physicalInfraDesc": "The virtual world requires that we maintain a building in order to support our technical needs and manpower operations."
+            "performance": "Funcionamiento",
+            "performanceDesc": "miles de conexiones de más de 72 países requieren muchos recursos, por lo tanto, necesitamos que la plataforma funcione para todos incluyendo personas con internet limitado o capacidades informáticas lentas.",
+            "features": "Características",
+            "featuresDesc": "Las mejoras y las nuevas características solicitadas por ustedes, nuestros amigos que utilizan el sistema exigen muchas horas de desarrollo. Estamos encantados de trabajar en ello para hacer realidad esas solicitudes.",
+            "security": "Seguridad",
+            "securityDesc": "El internet es vasto y abierto, pero no todos son amigables. Para mantener el sistema seguro, se necesitan esfuerzos adicionales para que siempre podamos estar actualizados para enfrentar los riesgos de seguridad que puedan surgir.",
+            "physicalInfra": "Infraestructura física",
+            "physicalInfraDesc": "El mundo virtual requiere que mantengamos el edificio para apoyar nuestras necesidades técnicas y el trabajo operativo del personal."
         },
-        "bottomText": "For anyone who cannot pay the minimum monthly amount or for any other questions please send us an email to: virtualhome@kabbalah.info We are always happy to help everyone.",
-        "payUserFee": "Pay User Fee",
-        "contactus": "Contact us"
+        "bottomText": "Para aquellos que no puedan pagar la tarifa mínima mensual or por cualquier pregunta, por favor escríbanos al correo electrónico: virtualhome@kabbalah.info Estaremos felices de ayudar a todos. ",
+        "payUserFee": "Pagar tarifa de usuario",
+        "contactus": "Contacto"
     },
     "header": {
         "appTitle": "BNEI BARUCH",
