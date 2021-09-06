@@ -1,9 +1,11 @@
 import { Button, Grid } from '@material-ui/core';
 import { Container } from '@material-ui/core';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import styled from "styled-components";
 import URL from '../config/config';
+import keycloakConfig from "../config/keycloakconfig";
+import Keycloak from "keycloak-js";
 const HomeContainer = styled.div`
     background-color: #fff;
     max-width: 1000px;
@@ -77,6 +79,15 @@ const BottomButtonAlt = styled(Button)`
 
 export default function Home() {
     const { t } = useTranslation('common');
+    useEffect(() => {
+        const keycloak = Keycloak(keycloakConfig);
+        keycloak.init({ onLoad: 'check-sso', checkLoginIframe: false })
+            .then(authenticated => {
+              if (authenticated) {
+                  window.location.href = window.location.origin + '/dash';
+              }
+            })
+      }, [])
     return (
         <Container>
             <HomeContainer>
