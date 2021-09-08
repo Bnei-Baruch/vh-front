@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 
 import { isWidthUp } from "@material-ui/core/withWidth";
+import { useSelector } from "react-redux";
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -59,6 +60,7 @@ const MainContent = styled(Paper)`
 
 const Dashboard = ({children, routes, width}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const authentication = useSelector(state => state.userReducer.authentication);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -69,11 +71,11 @@ const Dashboard = ({children, routes, width}) => {
       <CssBaseline />
       <GlobalStyle />
       <AppContent>
-        <Header onDrawerToggle={handleDrawerToggle} />
+        {authentication && <Header onDrawerToggle={handleDrawerToggle} />}
         <MainContent p={isWidthUp("lg", width) ? 10 : 5}>
           {children}
         </MainContent>
-        <Footer />
+        {authentication && <Footer />}
       </AppContent>
       <Settings />
     </Root>
