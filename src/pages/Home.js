@@ -1,11 +1,14 @@
 import { Button, Grid } from '@material-ui/core';
 import { Container } from '@material-ui/core';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import styled from "styled-components";
 import URL from '../config/config';
 import keycloakConfig from "../config/keycloakconfig";
 import Keycloak from "keycloak-js";
+import Loader from 'components/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAuthentication } from 'redux/actions/userActions';
 const HomeContainer = styled.div`
     background-color: #fff;
     max-width: 1000px;
@@ -79,15 +82,21 @@ const BottomButtonAlt = styled(Button)`
 
 export default function Home() {
     const { t } = useTranslation('common');
+    const dispatch = useDispatch();
+    const authentication = useSelector(state => state.userReducer.authentication);
     useEffect(() => {
         const keycloak = Keycloak(keycloakConfig);
         keycloak.init({ onLoad: 'check-sso', checkLoginIframe: false })
             .then(authenticated => {
-              if (authenticated) {
-                  window.location.href = window.location.origin + '/dash';
-              }
+                if (authenticated) {
+                    window.location.href = window.location.origin + '/dash';
+                } else {
+                    dispatch(setAuthentication(true));
+                }
             })
-      }, [])
+    }, [])
+
+    if (!authentication) return <Loader />
     return (
         <Container>
             <HomeContainer>

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Iframe from 'react-iframe'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import { Container } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
+import { setAuthentication } from 'redux/actions/userActions'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +16,11 @@ const useStyles = makeStyles((theme) => ({
 function Tos() {
   const { i18n } = useTranslation('common');
   const lang = i18n.language.toUpperCase();
+  const dispatch = useDispatch();
   const classes = useStyles()
+  useEffect(() => {
+    dispatch(setAuthentication(true));
+  }, [])
   
   const tosURL = {
     "EN": "https://docs.google.com/document/d/e/2PACX-1vSq-qh5QyLqUEgRb1udvez0SDENkxhHwEoUvRMDvj_fUUde4PI4sapi6fg0WIp6xwcfTNJuW0h0kBAM/pub?embedded=true",

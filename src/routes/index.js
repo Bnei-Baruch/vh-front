@@ -5,10 +5,10 @@ import async from "../components/Async";
 import {
   Sliders,
 } from "react-feather";
-import Tos from "views/Tos";
 
 // Home components
 const Home = async(() => import("../pages/Home"));
+const TermsOfService = async(() => import("../pages/TermsOfService"));
 
 const dashboardsRoutes = {
   id: "Home",
@@ -25,7 +25,7 @@ const termsRoutes = {
   header: "Terms and Service",
   icon: <Sliders />,
   containsHome: true,
-  component: Tos
+  component: TermsOfService
 };
 
 // Routes using the Dashboard layout
