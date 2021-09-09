@@ -1,1 +1,2 @@
 export const SET_THEME = 'SET_THEME';
+export const SET_AUTHENTICATION = 'SET_AUTHENTICATION'
