@@ -13,7 +13,9 @@ const devURL = {
 
 
 if (process.env.REACT_APP_STAGING === "true") { 
-	module.exports = devURL; 
+	//module.exports = devURL; 
+        // quick hack - but need to find bug.. 
+        module.exports = prodURL;
 } else {
 	module.exports = prodURL;
 }
