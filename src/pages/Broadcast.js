@@ -1,0 +1,127 @@
+import { Button, FormControl, Grid, InputLabel, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
+import React from 'react'
+import Helmet from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import ReactHlsPlayer from 'react-hls-player';
+import { useDispatch } from 'react-redux'
+import { setAuthentication } from 'redux/actions/userActions';
+import PublicIcon from '@material-ui/icons/Public';
+import axios from 'axios';
+const useStyles = makeStyles((theme) => ({
+  rootFirstSelect: {
+    padding: "10px"
+  },
+  rootSecondSelect: {
+    padding: "10px 80px"
+  }
+}));
+const PlayerContainer = styled.div`
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+`;
+const WorldIcon = styled(PublicIcon)`
+  position: relative;
+  top: 5px;
+`;
+const LangugaeContainer = styled(Grid)`
+  padding: 0px 20px !important;
+`;
+const LiveLang = styled.span`
+  position: relative;
+  top: -2px;
+`;
+
+const getBroadCast = (lang) => {
+  return axios.post(`https://kab.tv/live/api/heartbeat`, {
+    "lang": lang,
+    "bitrate": 500
+  }).then(res => res.data);
+}
+
+export default function Broadcast() {
+  const classes = useStyles();
+  const [languages, setLanguages] = React.useState("eng")
+  const [selectedLang, setSelectedLang] = React.useState("eng")
+  const { t } = useTranslation('common');
+  const [qText, setQText] = React.useState('');
+  const dispatch = useDispatch();
+  const getSourceURL = (lang) => {
+    return `https://edge3.uk.kab.tv/live/${lang}-medium/playlist.m3u8`;
+  }
+  React.useEffect(() => {
+    getBroadCast(selectedLang).then(res => {
+      if (res.Languages) {
+        setLanguages(res.Languages);
+      }
+    })
+    dispatch(setAuthentication(true));
+  }, [])
+  return (
+    <>
+      <Helmet title={t('live.name')} />
+
+      <Grid container spacing={10}>
+        <Grid item xs={12} sm={12} >
+          <PlayerContainer>
+            <Grid container spacing={10}>
+              <LangugaeContainer item xs={12} sm={12}>
+                <WorldIcon />
+                <LiveLang>
+                  &nbsp; {t('live.liveLanguage')}
+                </LiveLang>
+                <span> &nbsp;
+                  <FormControl variant="outlined">
+                    <Select
+                      classes={{ root: classes.rootFirstSelect }}
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={selectedLang}
+                      onChange={(e) => setSelectedLang(e.target.value)}
+                    >
+                      {
+                        Object.keys(languages).map((keys) => {
+                          return <MenuItem value={keys}>{languages[keys].Name}</MenuItem>
+                        })
+                      }
+                    </Select>
+                  </FormControl>
+                </span>
+              </LangugaeContainer>
+              <Grid item xs={12} sm={12}>
+                <ReactHlsPlayer
+                  src={getSourceURL(selectedLang)}
+                  autoPlay={false}
+                  controls={true}
+                  width="100%"
+                  height="100%"
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <div>
+                  {t('live.questions')}
+                </div>
+                <br />
+                <div>
+                  <TextField
+                    id="outlined-multiline-flexible"
+                    label={t('live.yourQuestion')}
+                    variant="outlined"
+                    multiline
+                    fullWidth
+                    maxRows={4}
+                    value={qText}
+                    onChange={(e) => setQText(e.target.value)}
+                  />
+                </div>
+                <br />
+                <Button variant="contained" color="primary">{t('live.postYourQuestion')}</Button>
+              </Grid>
+            </Grid>
+          </PlayerContainer>
+        </Grid>
+      </Grid>
+    </>
+  )
+}
