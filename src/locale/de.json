@@ -26,5 +26,12 @@
         "support": "Support",
         "helpCenter": "Help Center",
         "privacyAndSt": "Privacy & Terms of Service"
+    },
+    "live": {
+        "name": "Live",
+        "liveLanguage": "Live Language",
+        "questions": "Questions",
+        "yourQuestion": "Your Question",
+        "postYourQuestion": "Post your question"
     }
 }
