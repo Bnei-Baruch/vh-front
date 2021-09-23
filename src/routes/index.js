@@ -8,6 +8,7 @@ import {
 
 // Home components
 const Home = async(() => import("../pages/Home"));
+const Broadcast = async(() => import("../pages/Broadcast"));
 const TermsOfService = async(() => import("../pages/TermsOfService"));
 
 const dashboardsRoutes = {
@@ -20,7 +21,7 @@ const dashboardsRoutes = {
 };
 
 const termsRoutes = {
-  id: "Ters and Service Statement",
+  id: "Terms and Service Statement",
   path: "/terms",
   header: "Terms and Service",
   icon: <Sliders />,
@@ -28,10 +29,20 @@ const termsRoutes = {
   component: TermsOfService
 };
 
+const broadcastRoute = {
+  id: "Broadcast",
+  path: "/live",
+  header: "Broadcast",
+  icon: <Sliders />,
+  containsHome: true,
+  component: Broadcast
+};
+
 // Routes using the Dashboard layout
 export const dashboardLayoutRoutes = [
   dashboardsRoutes,
-  termsRoutes
+  termsRoutes,
+  broadcastRoute
 ];
 
 // Routes using the Auth layout
@@ -39,5 +50,6 @@ export const authLayoutRoutes = [];
 
 // Routes visible in the sidebar
 export const sidebarRoutes = [
-  dashboardsRoutes
+  dashboardsRoutes,
+  broadcastRoute
 ];
