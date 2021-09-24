@@ -79,7 +79,7 @@ build_production:
   before_script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
   script:
-    - docker build --build-arg BASE_IMAGE=$BASE_LATEST_IMAGE --build-arg PUBLIC_URL=$PRODUCTION_URL -t $PROD_IMAGE .
+    - docker build --build-arg BASE_IMAGE=$BASE_LATEST_IMAGE --build-arg IS_STAGING_BUILD=false --build-arg PUBLIC_URL=$PRODUCTION_URL -t $PROD_IMAGE .
     - docker push $PROD_IMAGE
   only:
     - tags
