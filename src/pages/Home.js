@@ -1,6 +1,6 @@
 import { Button, Grid } from '@material-ui/core';
 import { Container } from '@material-ui/core';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import styled from "styled-components";
 import URL from '../config/config';
