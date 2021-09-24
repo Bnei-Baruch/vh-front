@@ -44,7 +44,8 @@ const Routes = () => {
   const { i18n } = useTranslation('common');
   React.useEffect(() => {
     let language = query.get('lang') || localStorage.getItem('VH_LANG');
-    if (language) {
+    const availableLanguage = Object.keys(i18n?.options?.resources);
+    if (language && availableLanguage.includes(language)) {
       localStorage.setItem('VH_LANG', language.toLowerCase());
       i18n.changeLanguage(language.toLowerCase());
       if (language.toUpperCase() === 'IL') {
