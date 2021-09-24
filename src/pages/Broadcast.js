@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { setAuthentication } from 'redux/actions/userActions';
 import PublicIcon from '@material-ui/icons/Public';
 import axios from 'axios';
+import { getCountryCode, getCustomCodeFromCoutryCode } from 'utils';
 const useStyles = makeStyles((theme) => ({
   rootFirstSelect: {
     padding: "10px"
@@ -42,7 +43,7 @@ const getBroadCast = (lang) => {
 
 export default function Broadcast() {
   const classes = useStyles();
-  const [languages, setLanguages] = React.useState("eng")
+  const [languages, setLanguages] = React.useState([])
   const [selectedLang, setSelectedLang] = React.useState("eng")
   const { t } = useTranslation('common');
   const [qText, setQText] = React.useState('');
@@ -51,6 +52,10 @@ export default function Broadcast() {
     return `https://edge3.uk.kab.tv/live/${lang}-medium/playlist.m3u8`;
   }
   React.useEffect(() => {
+    const broadCastLag = localStorage.getItem("VH_BROADCAST_LANG");
+    if (broadCastLag || localStorage.getItem("VH_LANG")) {
+      setSelectedLang(getCustomCodeFromCoutryCode(broadCastLag || localStorage.getItem("VH_LANG").toLowerCase()))
+    }
     getBroadCast(selectedLang).then(res => {
       if (res.Languages) {
         setLanguages(res.Languages);
@@ -58,6 +63,11 @@ export default function Broadcast() {
     })
     dispatch(setAuthentication(true));
   }, [])
+
+  const updateBroadcastLang = (code) => {
+    setSelectedLang(code);
+    localStorage.setItem("VH_BROADCAST_LANG", getCountryCode(code));
+  }
   return (
     <>
       <Helmet title={t('live.name')} />
@@ -78,11 +88,11 @@ export default function Broadcast() {
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       value={selectedLang}
-                      onChange={(e) => setSelectedLang(e.target.value)}
+                      onChange={(e) => updateBroadcastLang(e.target.value)}
                     >
                       {
                         Object.keys(languages).map((keys) => {
-                          return <MenuItem value={keys}>{languages[keys].Name}</MenuItem>
+                          return <MenuItem value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
                         })
                       }
                     </Select>
@@ -98,7 +108,7 @@ export default function Broadcast() {
                   height="100%"
                 />
               </Grid>
-              <Grid item xs={12} sm={12}>
+              {/* <Grid item xs={12} sm={12}>
                 <div>
                   {t('live.questions')}
                 </div>
@@ -117,7 +127,7 @@ export default function Broadcast() {
                 </div>
                 <br />
                 <Button variant="contained" color="primary">{t('live.postYourQuestion')}</Button>
-              </Grid>
+              </Grid> */}
             </Grid>
           </PlayerContainer>
         </Grid>

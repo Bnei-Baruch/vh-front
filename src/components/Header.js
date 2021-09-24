@@ -80,6 +80,7 @@ function LanguageMenu() {
   });
 
   const { i18n } = useTranslation('common');
+  console.log(typeof i18n.options.resources)
 
   const toggleMenu = event => {
     setAnchorMenu(event.currentTarget);
