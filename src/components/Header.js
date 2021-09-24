@@ -15,6 +15,7 @@ import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import URL from '../config/config';
 import { NavLink } from "react-router-dom";
+import { setDirection } from "utils";
 
 const AppBar = styled(MuiAppBar)`
   background: ${props => props.theme.header.background};
@@ -74,13 +75,10 @@ function LanguageMenu() {
   const [anchorMenu, setAnchorMenu] = useState(null);
 
   const [lang, setLang] = useState({
-    "lang" : "English",
-    "code" : "US"
+    "lang": "English",
+    "code": "US"
   });
 
-  function setDirection(dir) {
-    document.body.style.direction = dir;
-  }
   const { i18n } = useTranslation('common');
 
   const toggleMenu = event => {
@@ -90,14 +88,15 @@ function LanguageMenu() {
   const closeMenu = (code) => {
     setAnchorMenu(null);
     setLang({
-      "lang" : lang,
-      "code" : code
+      "lang": lang,
+      "code": code
     })
     if (code.toUpperCase() === "IL") {
       setDirection('rtl');
     } else {
       setDirection('ltr');
     }
+    localStorage.setItem('VH_LANG', code.toLowerCase());
     i18n.changeLanguage(code.toLowerCase());
   };
 
@@ -124,10 +123,10 @@ function LanguageMenu() {
           Russian
         </MenuItem>
         <MenuItem onClick={() => closeMenu('il')}>
-        Hebrew
+          Hebrew
         </MenuItem>
         <MenuItem onClick={() => closeMenu('es')}>
-        Spanish
+          Spanish
         </MenuItem>
       </Menu>
     </React.Fragment>
@@ -147,13 +146,13 @@ const Header = () => {
         <Grid container alignItems="center">
           <Grid item>
             <NavLink to="/">
-            <LogoContainer>
-              <Logo src="/static/img/logo/logo.svg" slt="Application" />
-              <LogoTitle>
-                <LogoHeading>{t('header.appTitle')}</LogoHeading><br />
-                <LogoSubHeading>{t('header.appSubTitle')}</LogoSubHeading>
-              </LogoTitle>
-            </LogoContainer>
+              <LogoContainer>
+                <Logo src="/static/img/logo/logo.svg" slt="Application" />
+                <LogoTitle>
+                  <LogoHeading>{t('header.appTitle')}</LogoHeading><br />
+                  <LogoSubHeading>{t('header.appSubTitle')}</LogoSubHeading>
+                </LogoTitle>
+              </LogoContainer>
             </NavLink>
           </Grid>
           <Grid item xs />
