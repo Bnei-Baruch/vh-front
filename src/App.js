@@ -31,7 +31,7 @@ i18next.init({
     es: {
       common: Spanish,
     },
-    il: {
+    he: {
       common: Hebrew,
     },
     ru: {
