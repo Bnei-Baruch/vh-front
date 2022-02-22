@@ -3,8 +3,6 @@ import { Container } from '@material-ui/core';
 import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import styled from "styled-components";
-import URL from '../config/config';
-import keycloakConfig from "../config/keycloakconfig";
 import Keycloak from "keycloak-js";
 import Loader from 'components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
@@ -85,7 +83,7 @@ export default function Home() {
     const dispatch = useDispatch();
     const authentication = useSelector(state => state.userReducer.authentication);
     useEffect(() => {
-        const keycloak = Keycloak(keycloakConfig);
+        const keycloak = Keycloak(window.APP_CONFIG.KEYCLOAK_CONFIG);
         keycloak.init({ onLoad: 'check-sso', checkLoginIframe: false })
             .then(authenticated => {
                 if (authenticated) {
@@ -139,7 +137,7 @@ export default function Home() {
                         {t('home.bottomText')}
                     </BottomContainer>
                     <BottomContainer span={12} justify="center">
-                        <a href={URL.PAYMENT_URL}><BottomButton variant="contained" color="primary">{t('home.payUserFee')}</BottomButton></a>
+                        <a href={window.APP_CONFIG.PAYMENT_URL}><BottomButton variant="contained" color="primary">{t('home.payUserFee')}</BottomButton></a>
                         <a href="mailto:help@kli.one"><BottomButtonAlt variant="contained" color="primary">{t('home.contactus')}</BottomButtonAlt></a>
                     </BottomContainer>
                 </Grid>
