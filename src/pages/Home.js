@@ -137,7 +137,7 @@ export default function Home() {
                         {t('home.bottomText')}
                     </BottomContainer>
                     <BottomContainer span={12} justify="center">
-                        <a href={window.APP_CONFIG.PAYMENT_URL}><BottomButton variant="contained" color="primary">{t('home.payUserFee')}</BottomButton></a>
+                        <a href={window.location.origin + window.APP_CONFIG.PAYMENT_URL}><BottomButton variant="contained" color="primary">{t('home.payUserFee')}</BottomButton></a>
                         <a href="mailto:help@kli.one"><BottomButtonAlt variant="contained" color="primary">{t('home.contactus')}</BottomButtonAlt></a>
                     </BottomContainer>
                 </Grid>
