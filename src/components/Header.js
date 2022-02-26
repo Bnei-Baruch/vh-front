@@ -158,7 +158,7 @@ const Header = () => {
           <Grid item xs />
           <Grid item>
             <LanguageMenu />
-            <Button variant="contained" onClick={() => redirectToURL(window.location.origin + window.APP_CONFIG.LOGIN_URL)} color="primary">{t('header.login')}</Button>
+            <Button variant="contained" onClick={() => redirectToURL(window.location.origin + "/dash")} color="primary">{t('header.login')}</Button>
             &nbsp;&nbsp;
             <SignupButton variant="contained" onClick={() => redirectToURL(window.APP_CONFIG.SIGNUP_URL)} color="primary">{t('header.signup')}</SignupButton>
           </Grid>
