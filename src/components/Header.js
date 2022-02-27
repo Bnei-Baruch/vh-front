@@ -13,7 +13,6 @@ import {
 
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-import URL from '../config/config';
 import { NavLink } from "react-router-dom";
 import { setDirection } from "utils";
 
@@ -159,9 +158,9 @@ const Header = () => {
           <Grid item xs />
           <Grid item>
             <LanguageMenu />
-            <Button variant="contained" onClick={() => redirectToURL(URL.LOGIN_URL)} color="primary">{t('header.login')}</Button>
+            <Button variant="contained" onClick={() => redirectToURL(window.location.origin + "/dash")} color="primary">{t('header.login')}</Button>
             &nbsp;&nbsp;
-            <SignupButton variant="contained" onClick={() => redirectToURL(URL.SIGNUP_URL)} color="primary">{t('header.signup')}</SignupButton>
+            <SignupButton variant="contained" onClick={() => redirectToURL(window.APP_CONFIG.SIGNUP_URL)} color="primary">{t('header.signup')}</SignupButton>
           </Grid>
         </Grid>
       </Toolbar>
