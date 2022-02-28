@@ -48,7 +48,7 @@ build_staging:
   script:
     - date
     - docker pull $BASE_LATEST_IMAGE || true
-    - docker build --build-arg BASE_IMAGE=$BASE_LATEST_IMAGE  -t $STAGING_IMAGE .
+    - docker build --build-arg REACT_APP_COMMIT_SHA=$CI_COMMIT_SHORT_SHA --build-arg BASE_IMAGE=$BASE_LATEST_IMAGE  -t $STAGING_IMAGE .
     - docker tag $STAGING_IMAGE $STAGING_LATEST_IMAGE
     - docker push $STAGING_IMAGE
     - docker push $STAGING_LATEST_IMAGE
@@ -83,7 +83,7 @@ build_production:
   before_script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
   script:
-    - docker build --build-arg BASE_IMAGE=$BASE_LATEST_IMAGE --build-arg IS_STAGING_BUILD=false --build-arg PUBLIC_URL=$PRODUCTION_URL -t $PROD_IMAGE .
+    - docker build --build-arg BASE_IMAGE=$BASE_LATEST_IMAGE --build-arg REACT_APP_COMMIT_SHA=$CI_COMMIT_SHORT_SHA --build-arg IS_STAGING_BUILD=false --build-arg PUBLIC_URL=$PRODUCTION_URL -t $PROD_IMAGE .
     - docker push $PROD_IMAGE
   only:
     - tags
