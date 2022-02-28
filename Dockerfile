@@ -12,7 +12,7 @@ ARG IS_STAGING_BUILD="true"
 
 ENV REACT_APP_STAGING=${IS_STAGING_BUILD}
 
-# RUN mkdir vh-front && chown -R node:node vh-front
+ENV REACT_APP_COMMIT_SHA="${REACT_APP_COMMIT_SHA}"
 
 WORKDIR /vh-front
 
