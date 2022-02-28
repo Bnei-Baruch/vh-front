@@ -6,6 +6,8 @@ FROM ${BASE_IMAGE} as builder
 ARG PUBLIC_URL=""
 # below environment variable will be considered when npm building 
 # production assets / html
+ARG REACT_APP_COMMIT_SHA="dynamic"
+
 ENV PUBLIC_URL=${PUBLIC_URL}
 
 ARG IS_STAGING_BUILD="true"
