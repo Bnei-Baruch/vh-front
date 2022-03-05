@@ -40,11 +40,13 @@ const LanguageContainer = styled(Grid)`
 `;
 
 const LiveLang = styled.span`
-  margin: 0 10px 0 2px;
+  margin-right: ${props => props.plang === 'il' ? '6px' : '10px'};
+  margin-left: ${props => props.plang === 'il' ? '10px' : '6px'};
   padding: 0;
 `;
 
 const DonateButton = styled(Button)`
+    dir: ${props => props.plang === 'il' ? 'rtl' : 'ltr'};
     background-color: #1176D3;
     border-radius: 24px;
     color: #fff;
@@ -55,13 +57,14 @@ const DonateButton = styled(Button)`
 
 const DonateHeart = styled.span`
   color: #FC6719;
-  margin-left: 4px;
-  margin-right: 6px;
+  margin-left: ${props => props.plang === 'il' ? '6px' : '4px'};
+  margin-right: ${props => props.plang === 'il' ? '4px' : '6px'};
 `;
 
 const DonateLabel = styled.span`
   color: #fff;
-  margin-right: 8px;
+  margin-right: ${props => props.plang === 'il' ? '0' : '8px'};
+  margin-left: ${props => props.plang === 'il' ? '8px' : '0'};
 `;
 
 const getBroadCast = (lang) => {
@@ -95,10 +98,12 @@ export default function Broadcast() {
   }, [])
 
   const updateBroadcastLang = (code) => {
-    console.log(code);
     setSelectedLang(code);
     localStorage.setItem("VH_BROADCAST_LANG", getCountryCode(code));
   }
+
+  const pageLang = localStorage.getItem("VH_LANG").toLowerCase();
+
   return (
     <>
       <Helmet title={t('live.name')} />
@@ -107,11 +112,11 @@ export default function Broadcast() {
         <Grid item xs={12} sm={12} >
           <PlayerContainer>
             <Grid container spacing={10}>
-              <LanguageContainer item xs={12} sm={12}>
+              <LanguageContainer plang={pageLang} item xs={12} sm={12}>
                 <LanguageContainerLeftPart>
                   <WorldIcon />
-                  <LiveLang>
-                    &nbsp; {t('live.liveLanguage')}
+                  <LiveLang plang={pageLang}>
+                     {t('live.liveLanguage')}
                   </LiveLang>
                     <FormControl variant="outlined">
                       <Select
@@ -129,9 +134,9 @@ export default function Broadcast() {
                       </Select>
                     </FormControl>
                 </LanguageContainerLeftPart>
-                <DonateButton>
-                  <DonateHeart>&hearts;</DonateHeart>
-                  <DonateLabel>{t('live.donate')}</DonateLabel>
+                <DonateButton plang={pageLang}>
+                  <DonateHeart plang={pageLang}>&hearts;</DonateHeart>
+                  <DonateLabel plang={pageLang}>{t('live.donate')}</DonateLabel>
                 </DonateButton>
               </LanguageContainer>
               <Grid item xs={12} sm={12}>
