@@ -22,17 +22,28 @@ const PlayerContainer = styled.div`
   width: 100%;
   margin: auto;
 `;
+
 const WorldIcon = styled(PublicIcon)`
-  position: relative;
-  top: 5px;
 `;
-const LangugaeContainer = styled(Grid)`
+
+const LanguageContainerLeftPart = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const LanguageContainer = styled(Grid)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0px 20px !important;
 `;
+
 const LiveLang = styled.span`
-  position: relative;
-  top: -2px;
+  margin: 0 10px 0 2px;
+  padding: 0;
 `;
+
 const DonateButton = styled(Button)`
     background-color: #1176D3;
     border-radius: 24px;
@@ -42,15 +53,16 @@ const DonateButton = styled(Button)`
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12);
 `;
 
-const HeartSpan = styled.span`
+const DonateHeart = styled.span`
   color: #FC6719;
   margin-left: 4px;
   margin-right: 6px;
-`
+`;
+
 const DonateLabel = styled.span`
   color: #fff;
   margin-right: 8px;
-`
+`;
 
 const getBroadCast = (lang) => {
   return axios.post(`https://kab.tv/live/api/heartbeat`, {
@@ -95,33 +107,33 @@ export default function Broadcast() {
         <Grid item xs={12} sm={12} >
           <PlayerContainer>
             <Grid container spacing={10}>
-              <LangugaeContainer item xs={12} sm={12}>
-                <WorldIcon />
-                <LiveLang>
-                  &nbsp; {t('live.liveLanguage')}
-                </LiveLang>
-                <span> &nbsp;
-                  <FormControl variant="outlined">
-                    <Select
-                      classes={{ root: classes.rootFirstSelect }}
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={selectedLang}
-                      onChange={(e) => updateBroadcastLang(e.target.value)}
-                    >
-                      {
-                        Object.keys(languages).map((keys) => {
-                          return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
-                        })
-                      }
-                    </Select>
-                  </FormControl>
-                </span>
+              <LanguageContainer item xs={12} sm={12}>
+                <LanguageContainerLeftPart>
+                  <WorldIcon />
+                  <LiveLang>
+                    &nbsp; {t('live.liveLanguage')}
+                  </LiveLang>
+                    <FormControl variant="outlined">
+                      <Select
+                        classes={{ root: classes.rootFirstSelect }}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={selectedLang}
+                        onChange={(e) => updateBroadcastLang(e.target.value)}
+                      >
+                        {
+                          Object.keys(languages).map((keys) => {
+                            return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
+                          })
+                        }
+                      </Select>
+                    </FormControl>
+                </LanguageContainerLeftPart>
                 <DonateButton>
-                  <HeartSpan>&hearts;</HeartSpan>
+                  <DonateHeart>&hearts;</DonateHeart>
                   <DonateLabel>{t('live.donate')}</DonateLabel>
                 </DonateButton>
-              </LangugaeContainer>
+              </LanguageContainer>
               <Grid item xs={12} sm={12}>
                 <ReactHlsPlayer
                   src={getSourceURL(selectedLang)}
