@@ -33,6 +33,24 @@ const LiveLang = styled.span`
   position: relative;
   top: -2px;
 `;
+const DonateButton = styled(Button)`
+    background-color: #1176D3;
+    border-radius: 24px;
+    color: #fff;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12);
+`;
+
+const HeartSpan = styled.span`
+  color: #FC6719;
+  margin-left: 4px;
+  margin-right: 6px;
+`
+const DonateLabel = styled.span`
+  color: #fff;
+  margin-right: 8px;
+`
 
 const getBroadCast = (lang) => {
   return axios.post(`https://kab.tv/live/api/heartbeat`, {
@@ -65,6 +83,7 @@ export default function Broadcast() {
   }, [])
 
   const updateBroadcastLang = (code) => {
+    console.log(code);
     setSelectedLang(code);
     localStorage.setItem("VH_BROADCAST_LANG", getCountryCode(code));
   }
@@ -92,12 +111,16 @@ export default function Broadcast() {
                     >
                       {
                         Object.keys(languages).map((keys) => {
-                          return <MenuItem value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
+                          return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
                         })
                       }
                     </Select>
                   </FormControl>
                 </span>
+                <DonateButton>
+                  <HeartSpan>&hearts;</HeartSpan>
+                  <DonateLabel>{t('live.donate')}</DonateLabel>
+                </DonateButton>
               </LangugaeContainer>
               <Grid item xs={12} sm={12}>
                 <ReactHlsPlayer
