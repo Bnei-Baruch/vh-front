@@ -98,7 +98,7 @@ export default function Broadcast() {
                     </Select>
                   </FormControl>
                 </span>
-                </LangugaeContainer>
+              </LangugaeContainer>
               <Grid item xs={12} sm={12}>
                 <ReactHlsPlayer
                   src={getSourceURL(selectedLang)}
