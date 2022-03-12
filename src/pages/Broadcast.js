@@ -92,7 +92,7 @@ export default function Broadcast() {
                     >
                       {
                         Object.keys(languages).map((keys) => {
-                          return <MenuItem value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
+                          return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
                         })
                       }
                     </Select>
