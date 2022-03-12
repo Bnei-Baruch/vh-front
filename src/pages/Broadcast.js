@@ -45,11 +45,11 @@ const LiveLang = styled.span`
   padding: 0;
 `;
 
-const DonateButton = styled(Button)`
+const DonateButton = styled.button`
     dir: ${props => props.plang === 'il' ? 'rtl' : 'ltr'};
-    background-color: #1176D3;
+    background-color: #fff;
+    border: none;
     border-radius: 24px;
-    color: #fff;
     padding: 8px 10px;
     text-transform: uppercase;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12);
@@ -62,9 +62,13 @@ const DonateHeart = styled.span`
 `;
 
 const DonateLabel = styled.span`
-  color: #fff;
   margin-right: ${props => props.plang === 'il' ? '0' : '8px'};
   margin-left: ${props => props.plang === 'il' ? '8px' : '0'};
+`;
+
+const DonateLink = styled.a`
+  color: #1176D3;
+  text-decoration: none;
 `;
 
 const getBroadCast = (lang) => {
@@ -72,6 +76,13 @@ const getBroadCast = (lang) => {
     "lang": lang,
     "bitrate": 500
   }).then(res => res.data);
+}
+
+const DONATE_LINKS = {
+  'il': { url: 'https://www.kab1.com/?utm_source=live_broadcast_kli_one&utm_medium=button&utm_campaign=donations&utm_id=donations&utm_term=heb&utm_content=header_button_donate'},
+  'en': { url: 'https://www.kab1.com/en?utm_source=live_broadcast_kli_one&utm_medium=button&utm_campaign=donations&utm_id=donations&utm_term=eng&utm_content=header_button_donate'},
+  'ru': { url: 'https://www.kab1.com/ru?utm_source=live_broadcast_kli_one&utm_medium=button&utm_campaign=donations&utm_id=donations&utm_term=rus&utm_content=header_button_donate'},
+  'es': { url: 'https://www.kab1.com/es?utm_source=arvut_app&utm_medium=button&utm_campaign=donations&utm_id=donations&utm_term=spa&utm_content=button_donate'},
 }
 
 export default function Broadcast() {
@@ -104,6 +115,22 @@ export default function Broadcast() {
 
   const pageLang = localStorage.getItem("VH_LANG").toLowerCase();
 
+  console.log(pageLang);
+
+  const getDonateButton = () => {
+    const link = DONATE_LINKS[pageLang];
+    return (
+      <DonateButton plang={pageLang}>
+        <DonateHeart plang={pageLang}>❤</DonateHeart>
+        <DonateLabel plang={pageLang}>
+          <DonateLink href={link.url} target="_blank">
+            {t('live.donate')}
+          </DonateLink>
+        </DonateLabel>
+      </DonateButton>
+    )
+  }
+
   return (
     <>
       <Helmet title={t('live.name')} />
@@ -128,16 +155,15 @@ export default function Broadcast() {
                       >
                         {
                           Object.keys(languages).map((keys) => {
-                            return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
+                            return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt={getCountryCode(keys)} /> &nbsp; {languages[keys].Name}</MenuItem>
                           })
                         }
                       </Select>
                     </FormControl>
                 </LanguageContainerLeftPart>
-                <DonateButton plang={pageLang}>
-                  <DonateHeart plang={pageLang}>&hearts;</DonateHeart>
-                  <DonateLabel plang={pageLang}>{t('live.donate')}</DonateLabel>
-                </DonateButton>
+                <section className="donate">
+                  {getDonateButton()}
+                </section>
               </LanguageContainer>
               <Grid item xs={12} sm={12}>
                 <ReactHlsPlayer
