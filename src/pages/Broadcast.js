@@ -22,7 +22,6 @@ const PlayerContainer = styled.div`
   width: 100%;
   margin: auto;
 `;
-
 const WorldIcon = styled(PublicIcon)`
   position: relative;
   top: 5px;
@@ -30,10 +29,9 @@ const WorldIcon = styled(PublicIcon)`
 const LangugaeContainer = styled(Grid)`
   padding: 0px 20px !important;
 `;
-
 const LiveLang = styled.span`
-  margin: 0 10px 0 2px;
-  padding: 0;
+  position: relative;
+  top: -2px;
 `;
 
 const getBroadCast = (lang) => {
