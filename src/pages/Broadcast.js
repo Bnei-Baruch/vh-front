@@ -24,24 +24,15 @@ const PlayerContainer = styled.div`
 `;
 
 const WorldIcon = styled(PublicIcon)`
+  position: relative;
+  top: 5px;
 `;
-
-const LanguageContainerLeftPart = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const LanguageContainer = styled(Grid)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const LangugaeContainer = styled(Grid)`
   padding: 0px 20px !important;
 `;
 
 const LiveLang = styled.span`
-  margin-right: ${props => props.plang === 'il' ? '6px' : '10px'};
-  margin-left: ${props => props.plang === 'il' ? '10px' : '6px'};
+  margin: 0 10px 0 2px;
   padding: 0;
 `;
 
@@ -90,29 +81,29 @@ export default function Broadcast() {
         <Grid item xs={12} sm={12} >
           <PlayerContainer>
             <Grid container spacing={10}>
-              <LanguageContainer plang={pageLang} item xs={12} sm={12}>
-                <LanguageContainerLeftPart>
-                  <WorldIcon />
-                  <LiveLang plang={pageLang}>
-                     {t('live.liveLanguage')}
-                  </LiveLang>
-                    <FormControl variant="outlined">
-                      <Select
-                        classes={{ root: classes.rootFirstSelect }}
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={selectedLang}
-                        onChange={(e) => updateBroadcastLang(e.target.value)}
-                      >
-                        {
-                          Object.keys(languages).map((keys) => {
-                            return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt={getCountryCode(keys)} /> &nbsp; {languages[keys].Name}</MenuItem>
-                          })
-                        }
-                      </Select>
-                    </FormControl>
-                </LanguageContainerLeftPart>
-              </LanguageContainer>
+            <LangugaeContainer item xs={12} sm={12}>
+                <WorldIcon />
+                <LiveLang>
+                  &nbsp; {t('live.liveLanguage')}
+                </LiveLang>
+                <span> &nbsp;
+                  <FormControl variant="outlined">
+                    <Select
+                      classes={{ root: classes.rootFirstSelect }}
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={selectedLang}
+                      onChange={(e) => updateBroadcastLang(e.target.value)}
+                    >
+                      {
+                        Object.keys(languages).map((keys) => {
+                          return <MenuItem key={languages[keys].Name} value={keys}><img src={`/static/img/flags/${getCountryCode(keys)}.png`} width='15' alt /> &nbsp; {languages[keys].Name}</MenuItem>
+                        })
+                      }
+                    </Select>
+                  </FormControl>
+                </span>
+                </LangugaeContainer>
               <Grid item xs={12} sm={12}>
                 <ReactHlsPlayer
                   src={getSourceURL(selectedLang)}
