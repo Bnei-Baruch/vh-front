@@ -68,9 +68,6 @@ export default function Broadcast() {
     setSelectedLang(code);
     localStorage.setItem("VH_BROADCAST_LANG", getCountryCode(code));
   }
-
-  const pageLang = localStorage.getItem("VH_LANG").toLowerCase();
-
   return (
     <>
       <Helmet title={t('live.name')} />
@@ -79,7 +76,7 @@ export default function Broadcast() {
         <Grid item xs={12} sm={12} >
           <PlayerContainer>
             <Grid container spacing={10}>
-            <LangugaeContainer item xs={12} sm={12}>
+              <LangugaeContainer item xs={12} sm={12}>
                 <WorldIcon />
                 <LiveLang>
                   &nbsp; {t('live.liveLanguage')}
