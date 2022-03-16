@@ -73,8 +73,7 @@ const DONATE_LINKS = {
 
 function Footer() {
   const { t } = useTranslation('common');
-
-  const pageLang = localStorage.getItem("VH_LANG").toLowerCase();
+  const pageLang = localStorage.getItem("VH_LANG")?.toLowerCase() || 'en';
 
   const getDonateButton = () => {
     const link = DONATE_LINKS[pageLang];
