@@ -10,7 +10,7 @@ import {
   IconButton as MuiIconButton,
   Toolbar
 } from "@material-ui/core";
-
+import LanguageIcon from '@material-ui/icons/Language';
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
@@ -25,6 +25,13 @@ const IconButton = styled(MuiIconButton)`
   svg {
     width: 22px;
     height: 22px;
+  }
+  span {
+    color: #747474;
+    font-size: 14px;
+  }
+  :hover {
+    background-color: transparent !important;
   }
 `;
 
@@ -108,7 +115,8 @@ function LanguageMenu() {
         onClick={toggleMenu}
         color="inherit"
       >
-        <Flag src={`/static/img/flags/${i18n.language}.png`} alt="English" />
+        <LanguageIcon /> &nbsp;
+        {i18n.language?.toUpperCase()}
       </IconButton>
       <Menu
         id="menu-appbar"
