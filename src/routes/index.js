@@ -10,6 +10,7 @@ import {
 const Home = async(() => import("../pages/Home"));
 const Broadcast = async(() => import("../pages/Broadcast"));
 const TermsOfService = async(() => import("../pages/TermsOfService"));
+const FAQ = async(() => import("../pages/faq/FAQ"));
 
 const dashboardsRoutes = {
   id: "Home",
@@ -29,6 +30,15 @@ const termsRoutes = {
   component: TermsOfService
 };
 
+const faqRoutes = {
+  id: "Frequently Asked Questions",
+  path: "/faq",
+  header: "Frequently Asked Questions",
+  icon: <Sliders />,
+  containsHome: true,
+  component: FAQ
+};
+
 const broadcastRoute = {
   id: "Broadcast",
   path: "/live",
@@ -42,6 +52,7 @@ const broadcastRoute = {
 export const dashboardLayoutRoutes = [
   dashboardsRoutes,
   termsRoutes,
+  faqRoutes,
   broadcastRoute
 ];
 
