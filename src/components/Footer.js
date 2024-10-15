@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 import {
   Grid,
@@ -99,10 +100,13 @@ function Footer() {
                 <ListItemText primary={t('footer.support')} />
               </ListItem>
               <ListItem component="a" href="mailto:help@kli.one">
-              <ListItemText primary={t('footer.helpCenter')} />
+                <ListItemText primary={t('footer.helpCenter')} />
               </ListItem>
               <ListItem component="a" href="/terms">
                 <ListItemText primary={t('footer.privacyAndSt')}/>
+              </ListItem>
+              <ListItem>
+                <NavLink to="/faq">{t('footer.faq')}</NavLink>
               </ListItem>
             </List>
           </Grid>
