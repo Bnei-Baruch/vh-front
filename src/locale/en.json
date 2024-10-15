@@ -25,7 +25,8 @@
     "footer": {
         "support": "Support",
         "helpCenter": "Help Center",
-        "privacyAndSt": "Privacy & Terms of Service"
+        "privacyAndSt": "Privacy & Terms of Service",
+        "faq": "Frequently Asked Questions"
     },
     "live": {
         "name": "Live",
