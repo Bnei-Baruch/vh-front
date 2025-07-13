@@ -36,7 +36,7 @@
     "google-map-react": "1.1.7",
     "i18next": "^19.8.7",
     "jss": "10.4.0",
-    "keycloak-js": "^18.0.0",
+    "keycloak-js": "^21.0.0",
     "material-ui-dropzone": "2.5.0",
     "polished": "3.6.5",
     "prop-types": "15.7.2",
