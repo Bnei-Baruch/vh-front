@@ -83,7 +83,7 @@ export default function Home() {
     const dispatch = useDispatch();
     const authentication = useSelector(state => state.userReducer.authentication);
     useEffect(() => {
-        const keycloak = Keycloak(window.APP_CONFIG.KEYCLOAK_CONFIG);
+        const keycloak = new Keycloak(window.APP_CONFIG.KEYCLOAK_CONFIG);
         keycloak.init({ onLoad: 'check-sso', checkLoginIframe: false })
             .then(authenticated => {
                 if (authenticated) {
@@ -91,7 +91,10 @@ export default function Home() {
                 } else {
                     dispatch(setAuthentication(true));
                 }
-            })
+            }).catch(err => {
+                console.error("Keycloak initialization failed", err);
+                dispatch(setAuthentication(true));
+            });
     }, [])
 
     if (!authentication) return <Loader />
