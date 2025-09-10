@@ -8,7 +8,7 @@ import {
 
 // Home components
 const Home = async(() => import("../pages/Home"));
-const Broadcast = async(() => import("../pages/Broadcast"));
+// const Broadcast = async(() => import("../pages/Broadcast"));
 const TermsOfService = async(() => import("../pages/TermsOfService"));
 const FAQ = async(() => import("../pages/faq/FAQ"));
 
@@ -39,21 +39,21 @@ const faqRoutes = {
   component: FAQ
 };
 
-const broadcastRoute = {
-  id: "Broadcast",
-  path: "/live",
-  header: "Broadcast",
-  icon: <Sliders />,
-  containsHome: true,
-  component: Broadcast
-};
+// const broadcastRoute = {
+//   id: "Broadcast",
+//   path: "/live",
+//   header: "Broadcast",
+//   icon: <Sliders />,
+//   containsHome: true,
+//   component: Broadcast
+// };
 
 // Routes using the Dashboard layout
 export const dashboardLayoutRoutes = [
   dashboardsRoutes,
   termsRoutes,
   faqRoutes,
-  broadcastRoute
+  // broadcastRoute
 ];
 
 // Routes using the Auth layout
@@ -62,5 +62,5 @@ export const authLayoutRoutes = [];
 // Routes visible in the sidebar
 export const sidebarRoutes = [
   dashboardsRoutes,
-  broadcastRoute
+  // broadcastRoute
 ];
