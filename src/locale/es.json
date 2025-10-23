@@ -1,7 +1,7 @@
 {
     "home": {
-        "mainTitle": "Nuestro Hogar Virtual",
-        "mainSubtitle": "El Hogar Virtual incluye toda la infraestructura física y la mano de obra que nos permite realizar nuestra compleja y exhaustiva operación en línea, así como el funcionamiento y la mejora continua de nuestros sistemas de conexión virtual necesarios para estudiar juntos durante las lecciones diarias de Cabalá y celebrar reuniones y comidas especiales. Esto permite que amigos como ustedes estudien con total interacción en su propio idioma para todas las actividades, tanto con su decena como con amigos de los 72 países que componen el Kli Mundial.",
+        "mainTitle": "Nuestra Comunidad de Cabalá",
+        "mainSubtitle": "Nuestra Comunidad de Cabalá incluye toda la infraestructura física y la mano de obra que nos permite realizar nuestra compleja y exhaustiva operación en línea, así como el funcionamiento y la mejora continua de nuestros sistemas de conexión virtual necesarios para estudiar juntos durante las lecciones diarias de Cabalá y celebrar reuniones y comidas especiales. Esto permite que amigos como ustedes estudien con total interacción en su propio idioma para todas las actividades, tanto con su decena como con amigos de los 72 países que componen el Kli Mundial.",
         "feature": {
             "performance": "Funcionamiento",
             "performanceDesc": "miles de conexiones de más de 72 países requieren muchos recursos, por lo tanto, necesitamos que la plataforma funcione para todos incluyendo personas con internet limitado o capacidades informáticas lentas.",
@@ -17,8 +17,6 @@
         "contactus": "Contacto"
     },
     "header": {
-        "appTitle": "BNEI BARUCH",
-        "appSubTitle": "VIRTUAL HOME",
         "login": "Login",
         "signup": "Sign Up"
     },

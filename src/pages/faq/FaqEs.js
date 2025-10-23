@@ -28,7 +28,7 @@ function FaqES() {
             </p>
             <p>
                 Juntos,<br/>
-                El equipo de 'la casa virtual'
+                El equipo de 'la Comunidad de Kabbalah'
             </p>
         </Paper>
         <Accordion defaultExpanded>
