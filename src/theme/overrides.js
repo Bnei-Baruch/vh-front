@@ -1,4 +1,12 @@
+// Import custom color
+const customBlue = "#1a4378";
+
 const overrides = {
+  MuiAppBar: {
+    colorPrimary: {
+      backgroundColor: customBlue
+    }
+  },
   MuiCardHeader: {
     action: {
       marginTop: "-4px",
