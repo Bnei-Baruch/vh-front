@@ -50,9 +50,11 @@ const LogoContainer = styled.span`
 
 const Logo = styled.img`
   height: 80px;
+  padding: 3px 0;
   
   @media (max-width: ${props => props.theme.breakpoints.values.md}px) {
     height: 60px;
+    padding: 2px 0;
   }
 `;
 
@@ -147,7 +149,7 @@ const Header = () => {
   }
 
   // Determine which logo to use based on language
-  const logoSrc = i18n.language === 'il' ? '/static/img/logo/heb-logo.png' : '/static/img/logo/en-logo.png';
+  const logoSrc = i18n.language === 'il' ? '/static/img/logo/kc-heb-logo-light.png' : '/static/img/logo/kc-en-logo-light.png';
 
   return <React.Fragment>
     <AppBar position="sticky" elevation={0}>
