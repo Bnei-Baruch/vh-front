@@ -9,7 +9,7 @@
         {
             "src": "apple-icon.png",
             "type": "image/png",
-            "sizes": "192x192"
+            "sizes": "180x180"
         }
     ],
     "start_url": ".",
