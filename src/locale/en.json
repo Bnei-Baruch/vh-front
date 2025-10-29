@@ -1,7 +1,7 @@
 {
     "home": {
-        "mainTitle": "Our Virtual Home",
-        "mainSubtitle": "Our Virtual Home includes the physical infrastructure and manpower for maintaining our comprehensive operation and improving online systems for optimal connection during Daily Kabbalah Lessons, social gatherings, holidays, and meals. It allows each friend full interaction in their language, both with their Ten and the World Kli from 72 countries.",
+        "mainTitle": "Our Kabbalah Community",
+        "mainSubtitle": "Our Kabbalah Community includes the physical infrastructure and manpower for maintaining our comprehensive operation and improving online systems for optimal connection during Daily Kabbalah Lessons, social gatherings, holidays, and meals. It allows each friend full interaction in their language, both with their Ten and the World Kli from 72 countries.",
         "feature": {
             "performance": "PERFORMANCE",
             "performanceDesc": "Thousands of connections from more than 72 countries require substantial resources. Additionally, we need to make the platform work for everyone.",
@@ -12,13 +12,11 @@
             "physicalInfra": "PHYSICAL INFRASTRUCTURE",
             "physicalInfraDesc": "The virtual world requires that we maintain a building in order to support our technical needs and manpower operations."
         },
-        "bottomText": "For anyone who cannot pay the minimum monthly amount or for any other questions please send us an email to: virtualhome@kabbalah.info We are always happy to help everyone.",
+        "bottomText": "For anyone who cannot pay the minimum monthly amount or for any other questions please send us an email to: help@kli.one We are always happy to help everyone.",
         "payUserFee": "Pay User Fee",
         "contactus": "Contact us"
     },
     "header": {
-        "appTitle": "BNEI BARUCH",
-        "appSubTitle": "VIRTUAL HOME",
         "login": "Login",
         "signup": "Sign Up"
     },

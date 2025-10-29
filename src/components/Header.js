@@ -25,10 +25,12 @@ const IconButton = styled(MuiIconButton)`
   svg {
     width: 22px;
     height: 22px;
+    color: white;
   }
   span {
-    color: #747474;
-    font-size: 14px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
   }
   :hover {
     background-color: transparent !important;
@@ -47,17 +49,13 @@ const LogoContainer = styled.span`
 `;
 
 const Logo = styled.img`
-  height: 45px
-`;
-
-const LogoTitle = styled.div`
-    margin-left : 10px;
-`;
-const LogoHeading = styled.span`
-    font-size : 18px;
-    font-weight : bold;
-    color: #00447C;
-    font-weight: bold;
+  height: 80px;
+  padding: 3px 0;
+  
+  @media (max-width: ${props => props.theme.breakpoints.values.md}px) {
+    height: 60px;
+    padding: 2px 0;
+  }
 `;
 
 const SignupButton = styled(Button)`
@@ -65,6 +63,8 @@ const SignupButton = styled(Button)`
     border: 1px solid #949494;
     color: #000;
     text-decoration: none !important;
+    font-size: 16px;
+    font-weight: 500;
     :hover {
         background-color: #f8f8f8;
         border: 1px solid #949494;
@@ -72,9 +72,9 @@ const SignupButton = styled(Button)`
     }
 `;
 
-const LogoSubHeading = styled.span`
-    font-size : 14px;
-    color : #40B3E0;
+const LoginButton = styled(Button)`
+    font-size: 16px;
+    font-weight: 500;
 `;
 
 function LanguageMenu() {
@@ -142,11 +142,14 @@ function LanguageMenu() {
 }
 
 const Header = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
 
   const redirectToURL = (url) => {
     window.location.href = url;
   }
+
+  // Determine which logo to use based on language
+  const logoSrc = i18n.language === 'il' ? '/static/img/logo/kc-heb-logo-light.png' : '/static/img/logo/kc-en-logo-light.png';
 
   return <React.Fragment>
     <AppBar position="sticky" elevation={0}>
@@ -155,18 +158,14 @@ const Header = () => {
           <Grid item>
             <NavLink to="/">
               <LogoContainer>
-                <Logo src="/static/img/logo/logo.svg" slt="Application" />
-                <LogoTitle>
-                  <LogoHeading>{t('header.appTitle')}</LogoHeading><br />
-                  <LogoSubHeading>{t('header.appSubTitle')}</LogoSubHeading>
-                </LogoTitle>
+                <Logo src={logoSrc} alt="Application" />
               </LogoContainer>
             </NavLink>
           </Grid>
           <Grid item xs />
           <Grid item>
             <LanguageMenu />
-            <Button variant="contained" onClick={() => redirectToURL(window.location.origin + "/dash")} color="primary">{t('header.login')}</Button>
+            <LoginButton variant="contained" onClick={() => redirectToURL(window.location.origin + "/dash")} color="primary">{t('header.login')}</LoginButton>
             &nbsp;&nbsp;
             <SignupButton variant="contained" onClick={() => redirectToURL(window.APP_CONFIG.SIGNUP_URL)} color="primary">{t('header.signup')}</SignupButton>
           </Grid>
