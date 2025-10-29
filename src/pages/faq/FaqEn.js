@@ -28,7 +28,7 @@ function FaqEN() {
             </p>
             <p>
                 Together,<br/>
-                "The Virtual Home" Team
+                "The Kabbalah Community" Team
             </p>
         </Paper>
         <Accordion defaultExpanded>
@@ -59,7 +59,7 @@ function FaqEN() {
         <Accordion>
             <AccordionSummary id="whatfor-header" aria-controls="whatfor-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    What does the payment for "The Virtual Home" cover?
+                    What does the payment for "The Kabbalah Community" cover?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -141,7 +141,7 @@ function FaqEN() {
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    The subscription cost is based on the maintenance expenses of "The Virtual Home" products and infrastructure. 
+                    The subscription cost is based on the maintenance expenses of "The Kabbalah Community" products and infrastructure. 
                     Changes may occur depending on the maintenance costs of existing and future systems.
                 </Typography>
             </AccordionDetails>
