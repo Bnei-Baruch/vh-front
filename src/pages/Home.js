@@ -18,8 +18,8 @@ const HeaderContainer = styled(Grid)`
 `;
 
 const Header = styled.div`
-    font-size: 6rem;
-    font-weight: 300;
+    font-size: 3rem;
+    font-weight: ${props => props.language === 'en' ? '700' : '600'};
 `;
 
 const Subheading = styled.div`
@@ -54,32 +54,39 @@ const BottomContainer = styled(Grid)`
     font-size: 1.3rem;
     font-weight: 300;
     text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    
+    @media (max-width: ${props => props.theme.breakpoints.values.sm}px) {
+        flex-direction: column;
+        gap: 12px;
+    }
 `;
 
 const BottomButton = styled(Button)`
-    margin: 30px 15px; 
-    min-width: 115px;
+    width: 200px;
     text-decoration: none !important;
 `
 const BottomButtonAlt = styled(Button)`
-    margin: 30px 15px; 
     background-color: #fff;
     border: 1px solid #949494;
-    min-width: 115px;
+    width: 200px;
     color: #000;
     text-decoration: none !important;
+    
     :hover {
-        margin: 30px 15px; 
         background-color: #f8f8f8;
         border: 1px solid #949494;
-        min-width: 115px;
         color: #000;
     }
 `
 
 
 export default function Home() {
-    const { t } = useTranslation('common');
+    const { t, i18n } = useTranslation('common');
     const dispatch = useDispatch();
     const authentication = useSelector(state => state.userReducer.authentication);
     useEffect(() => {
@@ -103,9 +110,7 @@ export default function Home() {
             <HomeContainer>
                 <Grid spacing={2}>
                     <HeaderContainer item justifyContent="center">
-                        <img src={'/static/img/logo/house.png'} alt={'Home'} />
-                        <br />
-                        <Header>
+                        <Header language={i18n.language}>
                             {t('home.mainTitle')}
                         </Header>
                         <br />

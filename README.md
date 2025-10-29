@@ -1,4 +1,4 @@
-# Virtual Home
+# Kabbalah Community
 
 ## How to Run the Project
 
