@@ -1,5 +1,8 @@
 import { blue, green, grey, indigo, red, teal } from "@material-ui/core/colors";
 
+// Custom colors
+const customBlue = "#1a4378";
+
 const blueVariant = {
   name: "Blue",
   palette: {
@@ -264,7 +267,7 @@ const darkVariant = {
   name: "Dark",
   palette: {
     primary: {
-      main: blue[700],
+      main: customBlue,
       contrastText: "#FFF"
     },
     secondary: {
@@ -274,7 +277,7 @@ const darkVariant = {
   },
   header: {
     color: grey[500],
-    background: "#FFFFFF",
+    background: customBlue,
     search: {
       color: grey[800]
     },
