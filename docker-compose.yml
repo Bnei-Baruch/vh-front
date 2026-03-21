@@ -8,7 +8,7 @@ services:
     ports:
       - 8081:80
     volumes:
-      - /opt/$CI_PROJECT_PATH/public/config/:/usr/share/nginx/html/config/
+      - /opt/vh/vh-front/public/config/:/usr/share/nginx/html/config/
 networks:
     default:
         external:
