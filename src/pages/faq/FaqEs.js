@@ -8,6 +8,30 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(18),
         fontWeight: theme.typography.fontWeightBold,
     },
+    pageTitle: {
+        color: '#1a4378',
+    },
+    orgName: {
+        fontSize: theme.typography.pxToRem(18),
+        color: '#2e75b6',
+        fontWeight: theme.typography.fontWeightMedium,
+        margin: 0,
+    },
+    updatedDate: {
+        fontSize: theme.typography.pxToRem(13),
+        color: '#888888',
+        margin: '4px 0 0 0',
+    },
+    sectionTitle: {
+        fontSize: theme.typography.pxToRem(20),
+        fontWeight: theme.typography.fontWeightBold,
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(1),
+        padding: theme.spacing(1, 2),
+        backgroundColor: '#2e75b6',
+        color: '#ffffff',
+        borderRadius: 4,
+    },
 }));
 
 function FaqES() {
@@ -16,163 +40,256 @@ function FaqES() {
 
     return (
     <Fragment>
-        <Typography variant="h1">Preguntas Frecuentes</Typography>
+        <Typography variant="h1" className={classes.pageTitle}>Preguntas y respuestas sobre el modelo de "Matrícula"</Typography>
         <br/>
         <Paper>
-            <p>Queridos amigos,</p>
-            <p>
-                El martes 1 de noviembre de 2024, el 'Sistema de Arvut' estará disponible solo para suscriptores.<br/>
-                Cualquier amigo que desee acceder al sistema deberá tener una suscripción con un costo de $20 al mes.<br/>
-                La razón de esto es que los costos son muy altos, y el mantenimiento requiere muchos recursos.<br/> 
-                Gracias por su comprensión y apoyo.
-            </p>
-            <p>
-                Juntos,<br/>
-                El equipo de 'la Comunidad de Kabbalah'
-            </p>
+            <p className={classes.orgName}>Asociación "Bnei Baruj-Kabalá para todos"</p>
+            <p className={classes.updatedDate}>Actualizado: abril 2026</p>
         </Paper>
+
+        <Typography className={classes.sectionTitle}>General</Typography>
+
         <Accordion defaultExpanded>
-            <AccordionSummary id="price-header" aria-controls="price-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="why-header" aria-controls="why-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Cuál es el costo de la suscripción?
+                    ¿Por qué pasan al modelo de "Matrícula"?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    El costo de la suscripción es de 80 NIS / $20 / 20 euros.
+                    Durante la última década, el número de estudiantes en la asociación ha crecido a decenas de miles, y las donaciones y subvenciones no llegan a cubrir todos los costes del aprendizaje global del sistema. Por lo que se decidió pasar a un modelo de "matrícula", para que cada miembro pueda participar en el mantenimiento del sistema.
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
-            <AccordionSummary id="helphaver-header" aria-controls="helphaver-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="diff-header" aria-controls="diff-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿A quién debo contactar si tengo dificultades económicas para pagar?
+                    ¿Cuál es la diferencia entre la antigua tarifa de suscripción y el nuevo modelo de "Matrícula"?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    En la <a href="https://kli.one/dash/membership">página de pagos</a> hay una opción para contactar con el fondo 'Help-Haver'. 
-                    Menú &gt; Suscripción &gt; Estado &gt; Cambiar tipo de suscripción &gt; Help Haver 
+                    La suscripción anterior era una tarifa plana para todos y estaba destinada principalmente a cubrir los costes tecnológicos. El modelo de "Matrícula" es un pago diferencial (escalonado), determinado por el costo de vida del país en el que cada estudiante vive, y cubre todos los costes de nuestro marco educativo. Es un reemplazo del sistema anterior, no un cargo adicional.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+        <Accordion>
+            <AccordionSummary id="who-header" aria-controls="who-content" expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading}>
+                    ¿Quién debe pagar en virtud del nuevo modelo de "Matrícula"?
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    El modelo de "Matrícula" se aplica a los suscriptores y a los estudiantes de la asociación "Bnei Baruj-Kabalá para todos" que han completado un curso para principiantes en Israel y en el extranjero, a los estudiantes universitarios que han completado seis meses o más de antigüedad, y a los estudiantes que regularmente estudian en los marcos educativos de la asociación.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+
+        <Typography className={classes.sectionTitle}>Precios y Accesibilidad</Typography>
+
+        <Accordion>
+            <AccordionSummary id="price-header" aria-controls="price-content" expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading}>
+                    ¿Cuánto cuesta el nuevo modelo de "Matrícula"?
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography component="div">
+                    <ul>
+                        <li>Países con un alto costo de vida — 180 NIS por mes.</li>
+                        <li>Países con un costo medio de vida — 90 NIS por mes.</li>
+                        <li>Países con un bajo costo de vida — 60 NIS por mes.</li>
+                    </ul>
+                    NIS = Nuevo Séquel Israelí
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
             <AccordionSummary id="whatfor-header" aria-controls="whatfor-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Qué incluye el pago por el "hogar virtual"?
+                    ¿Qué incluye el nuevo modelo de "Matrícula"?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    El pago por el "hogar virtual" es por el uso del "sistema de Arvut", el sitio "Svivá Tová", el archivo "Archivo de Medios", 
-                    nuestro edificio en Pétaj Tikvá que sirve de infraestructura para todos los sistemas, seguridad de la información, 
-                    protección contra ataques cibernéticos y uso de diversas aplicaciones.
+                    Lecciones y maestros, traducciones y subtítulos, archivo, emisiones en directo y tecnologías, seguridad de la información y defensa cibernética, infraestructura digital, el centro físico, la comunidad y el acompañamiento, equipos de servicio y gestión, y los gastos legales.
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
-            <AccordionSummary id="update-payment-header" aria-controls="update-payment-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="extra-payment-header" aria-controls="extra-payment-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Cómo actualizo mi método de pago?
+                    ¿Hay un cargo adicional más allá de eso?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    En la <a href="https://kli.one/dash/membership">página de pagos</a>, en el botón: Actualizar método de pago. 
-                    Menú &gt; Suscripción &gt; Estado &gt; Actualizar método de pago
+                    Sí. Los estudiantes que físicamente vienen al centro en Petaj Tikva deben pagar un extra de mantenimiento para cubrir los gastos, tales como el café, electricidad, agua y limpieza.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+
+        <Typography className={classes.sectionTitle}>Descuentos</Typography>
+
+        <Accordion>
+            <AccordionSummary id="maaser-header" aria-controls="maaser-content" expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading}>
+                    ¿El nuevo modelo de "Matrícula" sustituye el pago del diezmo?
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    No. El diezmo es una cuestión espiritual, una donación del 10% de los ingresos. La "Matrícula" es una participación en el mantenimiento del sistema de estudio y no sustituye a la contribución del diezmo.
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
-            <AccordionSummary id="recurring-vs-regular-payment-header" aria-controls="recurring-vs-regular-payment-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="discount-who-header" aria-controls="discount-who-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Cuál es la diferencia entre el pago manual y el pago automático?
+                    ¿Quién tiene derecho a un descuento en la "Matrícula"?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    El pago manual es un pago único que no se renueva automáticamente, pero hay opción de pagar por adelantado varios meses. 
-                    El pago automático es un pago fijo que se realiza como una orden permanente y se renueva automáticamente cada mes.
+                    Aquellos cuyo total de diezmos y contribuciones en los últimos 12 meses han llegado al umbral anual de matrícula de acuerdo a su país son automáticamente elegibles para recibir un descuento del 55% en ese mes.
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
-            <AccordionSummary id="cancel-membership-header" aria-controls="cancel-membership-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="discount-calc-header" aria-controls="discount-calc-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Cómo cancelo la suscripción y puedo cancelarla en cualquier momento?
+                    ¿Cómo se calcula el descuento?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    Se puede cancelar la suscripción en cualquier momento, a través de la <a href="https://kli.one/dash/membership">página de pagos</a> en el botón de cancelación de suscripción.
+                    En Israel, por ejemplo, el umbral anual es de 2.160 NIS (12 × 180 NIS). Si el total de diezmos y donaciones en los últimos 12 meses alcanzó 2.160 NIS o más, el descuento será del 55%. Si no, el pago será en su totalidad.
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
-            <AccordionSummary id="less-then-month-header" aria-controls="less-then-month-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="discount-see-header" aria-controls="discount-see-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Es posible suscribirse por un período de menos de un mes?
+                    ¿Cómo veo si me dieron un descuento?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    No, el pago es solo por un mes completo.
+                    El descuento aparece en la página de estado del suscriptor en el sistema.
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
-            <AccordionSummary id="discount-header" aria-controls="discount-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="couple-discount-header" aria-controls="couple-discount-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Puedo pagar menos de $20?
+                    ¿Hay un descuento especial para las parejas?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    En la <a href="https://kli.one/dash/membership">página de pagos</a> hay una opción para contactar con el fondo 'Help-Haver'. 
-                    Menú &gt; Suscripción &gt; Estado &gt; Cambiar tipo de suscripción &gt; Help Haver 
+                    Sí. Las parejas estarán vinculadas y recibirán un descuento del 55% si el total de las contribuciones anuales de los dos juntos supera el doble del umbral anual. Por ejemplo, en Israel: 2 × 2.160 NIS = 4.320 NIS por año.
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
-            <AccordionSummary id="price-change-header" aria-controls="price-change-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="helphaver-header" aria-controls="helphaver-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Se espera que el monto del cargo cambie en el futuro?
+                    ¿A quién va dirigida la ayuda del Fondo Help-Haver?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                El costo de la suscripción se basa en los gastos de mantenimiento de los productos del "hogar virtual" y su infraestructura. 
-                Según los gastos de mantenimiento de los sistemas existentes y futuros, pueden haber cambios.
+                    El Fondo de Ayuda está destinado a estudiantes que necesitan asistencia financiera en el nuevo modelo de matrícula. Puedes solicitarlo a través de la página de pagos.
                 </Typography>
             </AccordionDetails>
         </Accordion>
+
+        <Typography className={classes.sectionTitle}>Pago y Cancelación</Typography>
+
         <Accordion>
-            <AccordionSummary id="pay-in-advance-header" aria-controls="pay-in-advance-content" expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary id="how-to-pay-header" aria-controls="how-to-pay-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿Puedo pagar por adelantado varios meses?
+                    ¿Cómo se paga?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <Typography>
-                    Se puede pagar por varios meses por adelantado si se realiza el pago de forma manual.
+                <Typography component="div">
+                    A través de la página de pagos, puede elegir entre tres opciones:
+                    <ul>
+                        <li>Automático — una orden permanente mensual que se renueva automáticamente.</li>
+                        <li>Manual — un pago único por un mes.</li>
+                        <li>Fondo de Ayuda para Estudiantes — para estudiantes que necesitan asistencia financiera.</li>
+                    </ul>
                 </Typography>
             </AccordionDetails>
         </Accordion>
         <Accordion>
             <AccordionSummary id="currency-header" aria-controls="currency-content" expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>
-                    ¿En qué moneda puedo pagar?
+                    ¿En qué moneda se realiza el pago?
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>
-                    Se puede pagar en shekels (NIS), euros (€) o dólares estadounidenses ($).
+                    Los residentes israelíes pagan en shekels, los residentes europeos en euros y el resto del mundo en dólares. El pago está vinculado al shekel, pero cada seis meses se realiza una revisión de conversión respecto al dólar y al euro.
                 </Typography>
             </AccordionDetails>
         </Accordion>
+        <Accordion>
+            <AccordionSummary id="update-payment-header" aria-controls="update-payment-content" expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading}>
+                    ¿Cómo se actualizan los métodos de pago?
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    Puede actualizarlo a través de la página de pagos. Si no encuentra la opción o hay un fallo, póngase en contacto con el equipo de soporte en: <a href="mailto:help@kli.one">help@kli.one</a>.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+        <Accordion>
+            <AccordionSummary id="problem-header" aria-controls="problem-content" expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading}>
+                    ¿Qué hacer si hay un problema con un descuento o pago?
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    Póngase en contacto con el equipo de soporte en: <a href="mailto:help@kli.one">help@kli.one</a>.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+        <Accordion>
+            <AccordionSummary id="cant-pay-header" aria-controls="cant-pay-content" expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading}>
+                    ¿Qué debo hacer si no puedo pagar?
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    Seleccione la opción "Fondo de Ayuda para Estudiantes" en la página de pagos o póngase en contacto con el equipo de soporte en: <a href="mailto:help@kli.one">help@kli.one</a>.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+        <Accordion>
+            <AccordionSummary id="cancel-membership-header" aria-controls="cancel-membership-content" expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading}>
+                    ¿Cómo puedo cancelar mi suscripción?
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    Contacte con el equipo de soporte en: <a href="mailto:help@kli.one">help@kli.one</a>.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+
+        <Paper style={{ marginTop: 24 }}>
+            <p>Para cualquier pregunta adicional, puede contactar con el equipo de soporte en: <a href="mailto:help@kli.one">help@kli.one</a>.</p>
+        </Paper>
     </Fragment>
     )
 }
 
 export default FaqES;
-

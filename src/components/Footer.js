@@ -94,18 +94,18 @@ function Footer() {
     <Wrapper>
       <Grid container spacing={0}>
         <Hidden smDown>
-          <Grid container item xs={12} md={6}>
+          <Grid container item xs={12} md={6} style={{ justifyContent: 'flex-start' }}>
             <List>
-              <ListItem component="a" href="mailto:help@kli.one">
+              <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <ListItemText primary={t('footer.support')} />
               </ListItem>
-              <ListItem component="a" href="mailto:help@kli.one">
+              <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <ListItemText primary={t('footer.helpCenter')} />
               </ListItem>
-              <ListItem component="a" href="/terms">
+              <ListItem component="a" href="/terms" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <ListItemText primary={t('footer.privacyAndSt')}/>
               </ListItem>
-              <ListItem>
+              <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <NavLink to="/faq">{t('footer.faq')}</NavLink>
               </ListItem>
             </List>

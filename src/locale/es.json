@@ -17,14 +17,14 @@
         "contactus": "Contacto"
     },
     "header": {
-        "login": "Login",
-        "signup": "Sign Up"
+        "login": "Iniciar sesión",
+        "signup": "Registrarse"
     },
     "footer": {
-        "support": "Support",
-        "helpCenter": "Help Center",
-        "privacyAndSt": "Privacy & Terms of Service",
-        "faq": "Frequently Asked Questions"
+        "support": "Soporte",
+        "helpCenter": "Centro de ayuda",
+        "privacyAndSt": "Privacidad y términos de servicio",
+        "faq": "Preguntas frecuentes"
     },
     "live": {
         "name": "Live",
