@@ -74,7 +74,8 @@ const DONATE_LINKS = {
 
 function Footer() {
   const { t } = useTranslation('common');
-  const pageLang = localStorage.getItem("VH_LANG")?.toLowerCase() || 'en';
+  const rawLang = localStorage.getItem("VH_LANG")?.toLowerCase();
+  const pageLang = rawLang in DONATE_LINKS ? rawLang : 'en';
 
   const getDonateButton = () => {
     const link = DONATE_LINKS[pageLang];
