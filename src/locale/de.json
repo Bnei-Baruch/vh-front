@@ -23,7 +23,8 @@
     "footer": {
         "support": "Support",
         "helpCenter": "Help Center",
-        "privacyAndSt": "Privacy & Terms of Service"
+        "privacyAndSt": "Privacy & Terms of Service",
+        "cancellationPolicy": "Site Terms & Cancellation Policy"
     },
     "live": {
         "name": "Live",

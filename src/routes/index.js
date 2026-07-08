@@ -11,6 +11,7 @@ const Home = async(() => import("../pages/Home"));
 // const Broadcast = async(() => import("../pages/Broadcast"));
 const TermsOfService = async(() => import("../pages/TermsOfService"));
 const FAQ = async(() => import("../pages/faq/FAQ"));
+const CancellationPolicy = async(() => import("../pages/cancellation/CancellationPolicy"));
 
 const dashboardsRoutes = {
   id: "Home",
@@ -39,6 +40,15 @@ const faqRoutes = {
   component: FAQ
 };
 
+const cancellationPolicyRoutes = {
+  id: "Cancellation Policy",
+  path: "/cancellation-policy",
+  header: "Cancellation Policy",
+  icon: <Sliders />,
+  containsHome: true,
+  component: CancellationPolicy
+};
+
 // const broadcastRoute = {
 //   id: "Broadcast",
 //   path: "/live",
@@ -53,6 +63,7 @@ export const dashboardLayoutRoutes = [
   dashboardsRoutes,
   termsRoutes,
   faqRoutes,
+  cancellationPolicyRoutes,
   // broadcastRoute
 ];
 
