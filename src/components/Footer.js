@@ -107,6 +107,9 @@ function Footer() {
                 <ListItemText primary={t('footer.privacyAndSt')}/>
               </ListItem>
               <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+                <NavLink to="/cancellation-policy">{t('footer.cancellationPolicy')}</NavLink>
+              </ListItem>
+              <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <NavLink to="/faq">{t('footer.faq')}</NavLink>
               </ListItem>
             </List>

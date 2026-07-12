@@ -2,7 +2,7 @@
 
 ## How to Run the Project
 
-- `npm install`
-- `npm start`
+- `yarn install`
+- `yarn start`
 
 App uses Material ui and is based on Create React App.
