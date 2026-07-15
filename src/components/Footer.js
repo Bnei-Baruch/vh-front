@@ -103,8 +103,8 @@ function Footer() {
               <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <ListItemText primary={t('footer.helpCenter')} />
               </ListItem>
-              <ListItem component="a" href="/terms" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
-                <ListItemText primary={t('footer.privacyAndSt')}/>
+              <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+                <NavLink to="/terms">{t('footer.privacyAndSt')}</NavLink>
               </ListItem>
               <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <NavLink to="/cancellation-policy">{t('footer.cancellationPolicy')}</NavLink>

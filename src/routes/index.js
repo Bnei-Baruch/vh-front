@@ -9,7 +9,7 @@ import {
 // Home components
 const Home = async(() => import("../pages/Home"));
 // const Broadcast = async(() => import("../pages/Broadcast"));
-const TermsOfService = async(() => import("../pages/TermsOfService"));
+const TermsOfService = async(() => import("../pages/terms/TermsOfService"));
 const FAQ = async(() => import("../pages/faq/FAQ"));
 const CancellationPolicy = async(() => import("../pages/cancellation/CancellationPolicy"));
 
