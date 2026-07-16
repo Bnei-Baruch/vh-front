@@ -48,8 +48,8 @@ function TermsEs() {
 
   return (
     <div className={classes.contentRoot}>
-      <Typography variant="h1" className={classes.pageTitle}>
-        Condiciones de Uso de la "Asociación Bnei Baruch - Kabbalah La’am"
+      <Typography variant="h2" className={classes.pageTitle}>
+      Términos de uso de la Asociación "Bnei Baruj – Kabbalah La’am"
       </Typography>
       <p className={classes.orgName}>En adelante “Asociación Bnei Baruch” o “la Asociación”, N° 580292753</p>
       <p className={classes.orgName}>Dirección de la Asociación:</p>

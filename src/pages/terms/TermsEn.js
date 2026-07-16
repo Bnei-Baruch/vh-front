@@ -48,7 +48,7 @@ function TermsEn() {
 
   return (
     <div className={classes.contentRoot}>
-      <Typography variant="h1" className={classes.pageTitle}>
+      <Typography variant="h2" className={classes.pageTitle}>
         Terms of Use of "Bnei Baruch Association - Kabbalah La’am"
       </Typography>
       <p className={classes.orgName}>Hereinafter "Bnei Baruch Association" or “the Association”, No. 580292753</p>

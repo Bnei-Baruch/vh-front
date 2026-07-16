@@ -50,7 +50,7 @@ function TermsHe() {
     <div className={classes.contentRoot}>
       <p className={classes.genderNote}>מסמך זה נכתב בלשון זכר, אך פונה לשני המינים כאחד.</p>
 
-      <Typography variant="h1" className={classes.pageTitle}>
+      <Typography variant="h2" className={classes.pageTitle}>
         תנאי שימוש עמותת "בני ברוך - קבלה לעם"
       </Typography>
       <p className={classes.orgName}>להלן עמותת "בני ברוך" או "העמותה", ע"ר 580292753</p>

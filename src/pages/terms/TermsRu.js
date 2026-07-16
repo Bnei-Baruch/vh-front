@@ -48,8 +48,8 @@ function TermsRu() {
 
   return (
     <div className={classes.contentRoot}>
-      <Typography variant="h1" className={classes.pageTitle}>
-        Условия использования системы Галакси - Ассоциация Бней Барух - «Каббала ла Ам»
+      <Typography variant="h2" className={classes.pageTitle}>
+      Условия использования Ассоциации «Бней Барух – Каббала ла-Ам»
       </Typography>
       <p className={classes.orgName}>Далее «Ассоциация Бней Барух» или «Ассоциация» 580292753</p>
       <p className={classes.orgName}>Адрес Ассоциации: ул. Рабаш 12, Петах Тиква, 4934829</p>
