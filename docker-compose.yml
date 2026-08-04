@@ -5,9 +5,18 @@ services:
     cpus: '0.1'
     mem_limit: 50M
     ports:
-      - 8081:80
+      # Bound to loopback: host nginx is the only thing that talks to this, and
+      # firewalld is disabled on the Rocky 9 hosts, so a 0.0.0.0 mapping would
+      # publish the service straight onto the VM's public IP, bypassing the
+      # edge LB and nginx entirely.
+      - 127.0.0.1:8081:80
     volumes:
-      - /opt/vh/vh-front/public/config/:/usr/share/nginx/html/config/
+      # Must match the gomplate --output-map path in .github/workflows/cicd.yml.
+      # If the two drift apart nothing errors: gomplate writes the rendered
+      # config to one directory, nginx serves an empty one, and the app silently
+      # falls back to the stale defaults baked into config-templates/config.js
+      # (auth.2serv.eu / eurokab.info).
+      - /root/vh-docker/apps/vh-front/public/config/:/usr/share/nginx/html/config/
 networks:
   default:
     name: vh
