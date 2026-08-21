@@ -10,9 +10,7 @@ on:
         type: choice
         options:
           - staging
-          - staging-new
           - production
-          - production-new
 
 jobs:
   build:
@@ -23,14 +21,11 @@ jobs:
       - name: Set environment variables
         run: |
           # PUBLIC_URL is baked into the bundle at build time, so each deploy
-          # target needs its own value. The old if/else gave anything that was
-          # not "production" the eurokab.info URL, which would have produced a
-          # build-out image that loads its assets from the wrong host.
+          # target needs its own value — an image built for one cannot be
+          # promoted to the other.
           case "${{ inputs.environment }}" in
             production)     echo "PUBLIC_URL=https://kli.one"               >> $GITHUB_ENV ;;
-            production-new) echo "PUBLIC_URL=https://production-vh.kli.one" >> $GITHUB_ENV ;;
-            staging)        echo "PUBLIC_URL=https://eurokab.info"          >> $GITHUB_ENV ;;
-            staging-new)    echo "PUBLIC_URL=https://staging-vh.kli.one"    >> $GITHUB_ENV ;;
+            staging)        echo "PUBLIC_URL=https://staging-vh.kli.one"          >> $GITHUB_ENV ;;
             *) echo "Unknown environment: ${{ inputs.environment }}" >&2; exit 1 ;;
           esac
           echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
@@ -66,9 +61,7 @@ jobs:
           # Explicit per-environment selection with no fall-through.
           case "${{ inputs.environment }}" in
             production)     echo "SSH_HOST=${{ secrets.VH_HOST_PRODUCTION }}"     >> $GITHUB_ENV ;;
-            production-new) echo "SSH_HOST=${{ secrets.VH_HOST_PRODUCTION_NEW }}" >> $GITHUB_ENV ;;
             staging)        echo "SSH_HOST=${{ secrets.VH_HOST_STAGING }}"        >> $GITHUB_ENV ;;
-            staging-new)    echo "SSH_HOST=${{ secrets.VH_HOST_STAGING_NEW }}"    >> $GITHUB_ENV ;;
             *) echo "Unknown environment: ${{ inputs.environment }}" >&2; exit 1 ;;
           esac
           echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
