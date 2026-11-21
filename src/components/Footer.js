@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 import {
   Grid,
-  Hidden,
   List,
   ListItemText,
   ListItem as MuiListItem
@@ -29,14 +28,6 @@ const ListItem = styled(MuiListItem)`
   &:active {
     color: #000;
   }
-`;
-
-const DonateSection = styled.section`
-  dir: rtl;
-  position: absolute;
-  left: ${props => props.plang === 'il' ? '59px' : 'none'};
-  right: ${props => props.plang === 'il' ? 'none' : '59px'};
-  bottom: 77px;
 `;
 
 const DonateButton = styled.button`
@@ -94,9 +85,11 @@ function Footer() {
   return (
     <Wrapper>
       <Grid container spacing={0}>
-        <Hidden smDown>
-          <Grid container item xs={12} md={6} style={{ justifyContent: 'flex-start' }}>
+          <Grid container item xs={12} style={{ justifyContent: 'flex-start' }}>
             <List>
+              <ListItem>
+                {getDonateButton()}
+              </ListItem>
               <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
                 <ListItemText primary={t('footer.support')} />
               </ListItem>
@@ -117,10 +110,6 @@ function Footer() {
               </ListItem>
             </List>
           </Grid>
-        </Hidden>
-        <DonateSection plang={pageLang}>
-          {getDonateButton()}
-        </DonateSection>
       </Grid>
     </Wrapper>
   );
