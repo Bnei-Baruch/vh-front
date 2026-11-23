@@ -107,7 +107,7 @@ function Footer() {
             <ListItem component="a" href="/terms" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
               <ListItemText primary={t('footer.privacyAndSt')}/>
             </ListItem>
-            {ckyLoaded && <ListItem component="a" href="#" onClick={e => { e.preventDefault(); window.revisitCkyConsent(); }} style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+            {ckyLoaded && <ListItem component="a" href="#" onClick={e => { e.preventDefault(); window.revisitCkyConsent?.(); }} style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
               <ListItemText primary={t('footer.cookieSettings')} />
             </ListItem>}
             <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>

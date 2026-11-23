@@ -14,10 +14,13 @@ import maTheme from "./theme";
 import Routes from "./routes/Routes";
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
-i18next.on("languageChanged", (l) => { document.documentElement.lang = ({ il: "he", us: "en" })[l] || l; }) // CookieYes picks its banner language from <html lang>
+const HTML_LANGS = { en: "en", us: "en", de: "de", es: "es", il: "he", ru: "ru" }; // app language → <html lang>, as in index.html
+i18next.on("languageChanged", (l) => { const h = HTML_LANGS[l]; document.documentElement.lang = typeof h === "string" ? h : "en"; }) // CookieYes picks its banner language from <html lang>
+// Start in the stored language (Routes applies the same rule), so init does not reset <html lang> to "en" before the banner loads
+const storedLang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('VH_LANG');
 i18next.init({
   interpolation: { escapeValue: false },  // React already does escaping
-  lng: 'en',
+  lng: typeof HTML_LANGS[storedLang] === "string" ? storedLang : 'en',
   fallbackLng: 'en',                           // language to use
   resources: {
     en: {
