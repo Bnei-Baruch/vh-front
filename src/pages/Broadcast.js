@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import ReactHlsPlayer from 'react-hls-player';
 import { useDispatch } from 'react-redux'
-import { setAuthentication } from 'redux/actions/userActions';
+import { setPageReady } from 'redux/actions/userActions';
 import PublicIcon from '@material-ui/icons/Public';
 import axios from 'axios';
 import { getCountryCode, getCustomCodeFromCoutryCode } from 'utils';
@@ -61,7 +61,7 @@ export default function Broadcast() {
         setLanguages(res.Languages);
       }
     })
-    dispatch(setAuthentication(true));
+    dispatch(setPageReady(true));
   }, [])
 
   const updateBroadcastLang = (code) => {
