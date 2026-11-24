@@ -60,7 +60,7 @@ const MainContent = styled(Paper)`
 
 const Dashboard = ({children, routes, width}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const authentication = useSelector(state => state.userReducer.authentication);
+  const pageReady = useSelector(state => state.userReducer.pageReady);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -71,11 +71,11 @@ const Dashboard = ({children, routes, width}) => {
       <CssBaseline />
       <GlobalStyle />
       <AppContent>
-        {authentication && <Header onDrawerToggle={handleDrawerToggle} />}
+        {pageReady && <Header onDrawerToggle={handleDrawerToggle} />}
         <MainContent p={isWidthUp("lg", width) ? 10 : 5}>
           {children}
         </MainContent>
-        {authentication && <Footer />}
+        {pageReady && <Footer />}
       </AppContent>
       <Settings />
     </Root>

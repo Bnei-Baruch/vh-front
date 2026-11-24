@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { useTranslation } from 'react-i18next'
 import { Container } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import { setAuthentication } from 'redux/actions/userActions'
+import { setPageReady } from 'redux/actions/userActions'
 import FaqHE from './FaqHe';
 import FaqEN from './FaqEn';
 import FaqES from './FaqEs';
@@ -13,7 +13,7 @@ function FAQ() {
   const { i18n } = useTranslation('common');
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setAuthentication(true));
+    dispatch(setPageReady(true));
   }, [dispatch])
 
     let content = 1;

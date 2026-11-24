@@ -1,12 +1,12 @@
 import * as types from '../constants';
 
-export default function reducer(state={ authentication: false }, actions) {
+export default function reducer(state={ pageReady: false }, actions) {
   switch (actions.type) {
 
-    case types.SET_AUTHENTICATION:
+    case types.SET_PAGE_READY:
       return {
         ...state,
-        authentication: actions.payload
+        pageReady: actions.payload
       }
 
     default:

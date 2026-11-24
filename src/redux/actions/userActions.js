@@ -1,7 +1,7 @@
 import * as types from '../constants';
-export function setAuthentication(value) {
+export function setPageReady(value) {
     return {
-      type: types.SET_AUTHENTICATION,
+      type: types.SET_PAGE_READY,
       payload: value
     }
 }

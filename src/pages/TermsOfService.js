@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import { Container } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import { setAuthentication } from 'redux/actions/userActions'
+import { setPageReady } from 'redux/actions/userActions'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,7 @@ function Tos() {
   const dispatch = useDispatch();
   const classes = useStyles()
   useEffect(() => {
-    dispatch(setAuthentication(true));
+    dispatch(setPageReady(true));
   }, [dispatch])
 
   const tosURL = {

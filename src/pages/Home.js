@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Keycloak from "keycloak-js";
 import Loader from 'components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuthentication } from 'redux/actions/userActions';
+import { setPageReady } from 'redux/actions/userActions';
 const HomeContainer = styled.div`
     background-color: #fff;
     max-width: 1000px;
@@ -88,7 +88,7 @@ const BottomButtonAlt = styled(Button)`
 export default function Home() {
     const { t, i18n } = useTranslation('common');
     const dispatch = useDispatch();
-    const authentication = useSelector(state => state.userReducer.authentication);
+    const pageReady = useSelector(state => state.userReducer.pageReady);
     useEffect(() => {
         const keycloak = new Keycloak(window.APP_CONFIG.KEYCLOAK_CONFIG);
         keycloak.init({ onLoad: 'check-sso', checkLoginIframe: false })
@@ -96,15 +96,15 @@ export default function Home() {
                 if (authenticated) {
                     window.location.href = window.location.origin + '/dash';
                 } else {
-                    dispatch(setAuthentication(true));
+                    dispatch(setPageReady(true));
                 }
             }).catch(err => {
                 console.error("Keycloak initialization failed", err);
-                dispatch(setAuthentication(true));
+                dispatch(setPageReady(true));
             });
     }, [])
 
-    if (!authentication) return <Loader />
+    if (!pageReady) return <Loader />
     return (
         <Container>
             <HomeContainer>

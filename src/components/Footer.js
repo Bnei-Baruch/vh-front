@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 import {
   Grid,
-  Hidden,
   List,
   ListItemText,
   ListItem as MuiListItem
@@ -29,14 +28,6 @@ const ListItem = styled(MuiListItem)`
   &:active {
     color: #000;
   }
-`;
-
-const DonateSection = styled.section`
-  dir: rtl;
-  position: absolute;
-  left: ${props => props.plang === 'il' ? '59px' : 'none'};
-  right: ${props => props.plang === 'il' ? 'none' : '59px'};
-  bottom: 77px;
 `;
 
 const DonateButton = styled.button`
@@ -76,6 +67,14 @@ function Footer() {
   const { t } = useTranslation('common');
   const rawLang = localStorage.getItem("VH_LANG")?.toLowerCase();
   const pageLang = rawLang in DONATE_LINKS ? rawLang : 'en';
+  // Cookie settings is shown only once CookieYes has loaded: it may be blocked (ad blocker) or its GTM tag not published
+  const [ckyLoaded, setCkyLoaded] = useState(false);
+  useEffect(() => {
+    const onLoad = () => setCkyLoaded(true);
+    if (window.revisitCkyConsent) onLoad();
+    document.addEventListener("cookieyes_banner_load", onLoad);
+    return () => document.removeEventListener("cookieyes_banner_load", onLoad);
+  }, []);
 
   const getDonateButton = () => {
     const link = DONATE_LINKS[pageLang];
@@ -94,30 +93,31 @@ function Footer() {
   return (
     <Wrapper>
       <Grid container spacing={0}>
-        <Hidden smDown>
-          <Grid container item xs={12} md={6} style={{ justifyContent: 'flex-start' }}>
-            <List>
-              <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
-                <ListItemText primary={t('footer.support')} />
-              </ListItem>
-              <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
-                <ListItemText primary={t('footer.helpCenter')} />
-              </ListItem>
-              <ListItem component="a" href="/terms" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
-                <ListItemText primary={t('footer.privacyAndSt')}/>
-              </ListItem>
-              <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
-                <NavLink to="/cancellation-policy">{t('footer.cancellationPolicy')}</NavLink>
-              </ListItem>
-              <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
-                <NavLink to="/faq">{t('footer.faq')}</NavLink>
-              </ListItem>
-            </List>
-          </Grid>
-        </Hidden>
-        <DonateSection plang={pageLang}>
-          {getDonateButton()}
-        </DonateSection>
+        <Grid container item xs={12} style={{ justifyContent: 'flex-start' }}>
+          <List>
+            <ListItem>
+              {getDonateButton()}
+            </ListItem>
+            <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+              <ListItemText primary={t('footer.support')} />
+            </ListItem>
+            <ListItem component="a" href="mailto:help@kli.one" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+              <ListItemText primary={t('footer.helpCenter')} />
+            </ListItem>
+            <ListItem component="a" href="/terms" style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+              <ListItemText primary={t('footer.privacyAndSt')}/>
+            </ListItem>
+            {ckyLoaded && <ListItem component="a" href="#" onClick={e => { e.preventDefault(); window.revisitCkyConsent?.(); }} style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+              <ListItemText primary={t('footer.cookieSettings')} />
+            </ListItem>}
+            <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+              <NavLink to="/cancellation-policy">{t('footer.cancellationPolicy')}</NavLink>
+            </ListItem>
+            <ListItem style={{ textAlign: pageLang === 'il' ? 'right' : 'left' }}>
+              <NavLink to="/faq">{t('footer.faq')}</NavLink>
+            </ListItem>
+          </List>
+        </Grid>
       </Grid>
     </Wrapper>
   );
